@@ -6,6 +6,8 @@ Example: **Teach me the content from my latest microeconomics lecture**.
 
 The demo uses the user's signed-in **Aside CLI**, explicitly selecting **Claude Sonnet 5.5** through its connected Claude subscription. It retrieves the actual Moodle transcript and matching lecture notes/slides, adapts an opening teaching lesson so it can be understood without the visuals, and generates real **ElevenLabs** narration. The page shows live activity, then a player, adapted transcript and source links. Repeating the same request within an hour reuses the real prepared lesson without another provider call; **Refresh from Moodle** explicitly runs it again. It does not silently substitute example course content if retrieval fails.
 
+The activity feed stays visible and reports each observed operation, its agent, start time, duration and actual result. It polls the full parent and child-task histories while retrieval and adaptation run, then saves the action history locally with the lesson. Parallel operations remain separate, and failed attempts stay marked as failures even if a later attempt succeeds. Only operation metadata is exposed; reasoning, commands and raw tool results are excluded. The website uses task descriptions instead of provider names, with the official Moodle wordmark inline. If detailed activity becomes unavailable, the page reports that rather than inventing progress.
+
 ## Run
 
 ```sh

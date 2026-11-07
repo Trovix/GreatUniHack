@@ -36,8 +36,20 @@ try{
   await page.getByRole('button',{name:/Read transcript/}).click();
   if((await page.locator('.script').innerText()).length<300)throw new Error('Adapted transcript is missing.');
   await page.getByRole('button',{name:/Hide transcript/}).click();
-  await page.getByText('View agent activity').click();
+  await page.getByRole('log',{name:'Lecture activity'}).waitFor({state:'visible'});
   if(await page.locator('.activity li').count()<5)throw new Error('Agent activity is missing.');
-  console.log('Passed: actual saved lesson, live event connection, ElevenLabs playback/pause, adapted transcript and activity. No new provider calls.');
+  const sourceActions=prepared.events.filter(event=>event.stage==='action');
+  if(sourceActions.length&&await page.locator('.activity-context time').count()!==prepared.events.length)throw new Error('Some action timestamps were omitted.');
+  if(/\b(?:aside|claude|elevenlabs|openai|codex|echo360|panopto)\b/i.test(await page.locator('.work').innerText()))throw new Error('Internal vendor names appear in the demo.');
+  const logos=page.locator('.activity img[alt="Moodle"]');
+  if(!await logos.count())throw new Error('Inline Moodle logos are missing.');
+  if(!await logos.evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0)))throw new Error('A Moodle logo failed to load.');
+  if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error('Prepared lesson overflows on mobile.');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.screenshot({path:'.tmp/demo-activity-desktop.png',fullPage:true});
+  await page.locator('.activity').evaluate(list=>{list.scrollTop=0;});
+  await page.screenshot({path:'.tmp/demo-activity-start.png',fullPage:true});
+  console.log('Passed: actual saved lesson, event connection, playback/pause, transcript, complete action feed, inline Moodle logos and product copy. No new provider calls.');
  }
 }finally{await browser.close();}
