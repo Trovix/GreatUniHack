@@ -1,0 +1,82 @@
+{
+  "title": "Earshot \u2014 your lecture, in your ears",
+  "duration": 60,
+  "width": 1920,
+  "height": 1080,
+  "audioSample": {
+    "start": 27.4,
+    "end": 34.4
+  },
+  "cues": [
+    {
+      "start": 0,
+      "end": 6,
+      "label": "The problem",
+      "screen": "Earshot title from the pitch deck, then the app opens its request field.",
+      "say": "For a blind student, \u2018as you can see\u2019 can hide the explanation."
+    },
+    {
+      "start": 6,
+      "end": 10,
+      "label": "One request",
+      "screen": "The microeconomics request is already filled in; click the arrow at 9 seconds.",
+      "say": "Earshot starts with one request: teach me my latest lecture."
+    },
+    {
+      "start": 10,
+      "end": 17,
+      "label": "Find the lecture",
+      "screen": "The five-step preparation trace advances through Moodle materials.",
+      "say": "It combines your Moodle transcript and lecture notes, then explains the visual references in words."
+    },
+    {
+      "start": 17,
+      "end": 24,
+      "label": "Follow the work",
+      "screen": "Open the detailed activity, show the recorded operations, then return to the milestones. The lesson becomes ready.",
+      "say": "You can follow its progress, and open the activity log to see the individual steps."
+    },
+    {
+      "start": 24,
+      "end": 27,
+      "label": "Give the diagram a voice",
+      "screen": "A diagram from the lecture notes, followed by its spoken explanation in the app.",
+      "say": "Here, a diagram becomes a spoken explanation."
+    },
+    {
+      "start": 27,
+      "end": 35,
+      "label": "Listen to Earshot",
+      "screen": "Play a real excerpt: \u2018The horizontal axis is wealth in pounds, and the vertical axis is utility.\u2019 Words reveal in sync.",
+      "say": "[SILENCE \u2014 let the app speak. Do not read this instruction aloud.]"
+    },
+    {
+      "start": 35,
+      "end": 42,
+      "label": "Stay in sync",
+      "screen": "Switch to 2\u00d7, jump to another point, and pause. The transcript follows the audio playhead.",
+      "say": "The text keeps up when I change speed, pause, or jump ahead."
+    },
+    {
+      "start": 42,
+      "end": 50,
+      "label": "Read and check",
+      "screen": "Open the full transcript, close it, and expand the original course sources.",
+      "say": "The full explanation is there to read, with the original course sources just below."
+    },
+    {
+      "start": 50,
+      "end": 56,
+      "label": "Take it with you",
+      "screen": "Save the actual WAV, then return to the player and synchronized text.",
+      "say": "Save the audio, and take the explanation with you when the screen stays closed."
+    },
+    {
+      "start": 56,
+      "end": 60,
+      "label": "Close",
+      "screen": "Earshot brand and its audio-first mission.",
+      "say": "Earshot. Your lecture, in your ears."
+    }
+  ]
+}

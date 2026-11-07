@@ -1,0 +1,43 @@
+1
+00:00:00,100 --> 00:00:03,824
+For a blind student, ‘as you can see’ can hide the explanation.
+
+2
+00:00:06,100 --> 00:00:09,750
+Earshot starts with one request: teach me my latest lecture.
+
+3
+00:00:10,100 --> 00:00:15,532
+It combines your Moodle transcript and lecture notes, then explains the visual references in words.
+
+4
+00:00:17,100 --> 00:00:21,836
+You can follow its progress, and open the activity log to see the individual steps.
+
+5
+00:00:24,100 --> 00:00:26,750
+Here, a diagram becomes a spoken explanation.
+
+6
+00:00:29,354 --> 00:00:32,013
+The horizontal axis is wealth in pounds,
+
+7
+00:00:32,047 --> 00:00:34,300
+and the vertical axis is utility.
+
+8
+00:00:35,100 --> 00:00:39,012
+The text keeps up when I change speed, pause, or jump ahead.
+
+9
+00:00:42,100 --> 00:00:46,697
+The full explanation is there to read, with the original course sources just below.
+
+10
+00:00:50,100 --> 00:00:54,244
+Save the audio, and take the explanation with you when the screen stays closed.
+
+11
+00:00:56,100 --> 00:00:58,653
+Earshot. Your lecture, in your ears.

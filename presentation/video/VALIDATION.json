@@ -1,0 +1,21 @@
+{
+  "duration": 60,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "fullDecode": "passed",
+  "audioMix": "Rebuilt as a continuous 60-second PCM timeline before AAC encoding",
+  "audioStreams": 1,
+  "narrator": "ElevenLabs George",
+  "lectureAudioSeconds": [
+    29.273,
+    34.393
+  ],
+  "lectureStemOutsideWindow": "Exact digital silence",
+  "narratorDuringLecture": "Exact digital silence",
+  "decodedAACComparedWithExpectedMix": "Passed across opening, transitions, excerpt and ending",
+  "maxCheckedRmsError": 0.0016631047474220395,
+  "sha256": "f54d90b91ba32de5c367d63b92966b41e23a87f3b7a0372c3873eb87f5c6a452"
+}
