@@ -1,5 +1,13 @@
 # Verification — 7 November 2026
 
+## Current request demo
+
+The rebuilt `apps/demo` entry point completed an actual signed-in Moodle retrieval through Claude Sonnet 5.5 on Aside, read a real lecture transcript and matching notes/slides, adapted an opening lesson, and generated **330.188 seconds of real ElevenLabs narration**. Browser playback, pause, adapted transcript, source links, persisted result recovery, keyboard entry, initial blank screen and mobile layout were checked. No course transcript, slides or generated private lecture audio are committed; they remain in ignored local `.data/demo/`. OpenAI is not used in this demo pipeline.
+
+`npm run typecheck` and `npm run build:demo` pass. `npm run test:demo -- --prepared` checks the running UI and already-prepared real audio without new provider calls. The requested output is a labelled opening teaching lesson, not the complete two-hour recording. The earlier extension benchmark results below describe the previous prototype, not this demo.
+
+## Earlier extension prototype
+
 **Release verdict: full P0 is not verified.** The local prototype and its offline software paths are implemented and tested. Live OpenAI transformation, actual Moodle capture and human audio-comprehension review remain open.
 
 ## Automated results

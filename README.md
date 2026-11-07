@@ -1,5 +1,19 @@
 # Lecture Access
 
+The current demo is a minimal lecture-request interface: a blank white screen, inset black frame and a speech bubble. **Cmd/Ctrl+K** moves the bubble to the centre and opens a typed request. **Claude through the user's Aside CLI** retrieves the actual Moodle transcript and notes, adapts a spoken opening lesson, and **ElevenLabs** narrates it. Live stages show the work as it happens.
+
+```sh
+export PATH="$PWD/node_modules/node/bin:$PATH"
+npm run build:demo
+LECTURE_ACCESS_ELEVENLABS_KEY_FILE=/absolute/path/to/private-elevenlabs-key npm run demo
+```
+
+Open **http://127.0.0.1:4320**. [Demo setup and behavior](DEMO.md).
+
+---
+
+## Earlier extension prototype
+
 A Chrome MV3 extension and a paired local Node service for turning explicitly selected lecture audio, timed captions and aligned visuals into a source-grounded spoken explanation. The side panel and full workspace share the same interface. The design follows the provided design references, with local licensed fonts, an inset frame, a wave indicator and reduced-motion support.
 
 **Current release status: prototype; full P0 verification is blocked.** Offline software and installed-extension fixture tests are implemented. ElevenLabs reference speech and source transcription were tested live. F1–F4b have not passed live multimodal transformation or audio comprehension review because live multimodal validation remains pending. No real Moodle session or target-user evaluation was available. See [VERIFICATION.md](VERIFICATION.md) for precise evidence and limits.

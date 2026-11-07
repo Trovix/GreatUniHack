@@ -1,14 +1,28 @@
-# Local demonstration
+# Lecture request demo
 
-This demonstration is a prototype walkthrough. Live image-to-explanation quality and real Moodle capture remain blocked; the mock path must be identified aloud.
+Start on a blank white screen with an inset black frame and a speech bubble at the bottom left. Press **Cmd+K** (Mac) or **Ctrl+K**, or click the bubble. It moves to the centre and reveals the request field.
 
-1. Follow README setup, load `dist/extension`, start the loopback service in mock mode with the exact extension Origin and pair its private local token.
-2. Start `npm run fixture`, enter the synthetic course at 127.0.0.1:4318, and click the extension action. In Find, bind the course tab, select Week 1 and preview it. Only that visible section appears; unrelated/private/form/hidden content is excluded. Import a selected direct PDF or VTT using that browser's existing authenticated context. This is a fixture, not actual Moodle.
-3. For a short offline walkthrough, import `fixtures/F3/source.wav`, `captions.vtt` and `V1.png`, then Review & prepare. Add an interval from 0 to 10 seconds, confirm the timeline and save. The static image has two options and no pointer.
-4. Consent to Prepare labelled mock transcript. Point out the explicit unresolved visual limitation. Review the descriptive transcript and ledger, separately consent to local mock speech, then choose Listen and Play. Local speech is not ElevenLabs.
-5. Pause to ask a question, type a space normally in the question field, and resume the saved explanation segment/offset. Escape stops audio. Edit a source to show stale output and labelled archived revisions; old audio cannot become current.
-6. Queue more than one prepared lecture and explicitly start Play ready lectures. Completion in the background does not add an item to an existing playback snapshot.
+Example: **Teach me the content from my latest microeconomics lecture**.
 
-For live ElevenLabs evidence, play `verification/live-speech/F1-reference.wav` and `F2-change-reference.wav`. They are developer-authored synthetic references, not visual-language compiler output. The first covers axes, initial/new equilibria, fixed supply, buyer change, demand shift versus movement, fraction grouping/restriction and the return to the original slide. The second changes the source meaning to fewer buyers and equilibrium 3/£3. `QA-reference.wav` checks grouped algebra speech. Human listening review has not been completed; browser fetch/decode/playback is recorded separately.
+The demo uses the user's signed-in **Aside CLI**, explicitly selecting **Claude Sonnet 5.5** through its connected Claude subscription. It retrieves the actual Moodle transcript and matching lecture notes/slides, adapts an opening teaching lesson so it can be understood without the visuals, and generates real **ElevenLabs** narration. The page shows live activity, then a player, adapted transcript and source links. Repeating the same request within an hour reuses the real prepared lesson without another provider call; **Refresh from Moodle** explicitly runs it again. It does not silently substitute example course content if retrieval fails.
 
-Do not present fixture/software success, a model audit, or reference narration as accessibility certification or target-user validation. Do not submit, publish or upload private course material as part of this demo.
+## Run
+
+```sh
+npm ci
+export PATH="$PWD/node_modules/node/bin:$PATH"
+npm run build:demo
+LECTURE_ACCESS_ELEVENLABS_KEY_FILE=/absolute/path/to/private-elevenlabs-key npm run demo
+```
+
+Open **http://127.0.0.1:4320**. Aside must be running, Claude must be connected in Aside, and Moodle must be signed in in the user's Aside browser. `DEMO_ASIDE_MODEL` can select another available Claude model; its default is `claude-code/claude-sonnet-5-5`. The default stock ElevenLabs voice is Bella; `LECTURE_ACCESS_ELEVENLABS_VOICE_ID` can override it.
+
+OpenAI keys are not required for this demo. Aside subprocesses receive no API-key environment variables. Provider keys and the retrieved private lecture material remain on the local server, under ignored `.data/demo/`. Do not commit that directory. Only the adapted narration is sent to ElevenLabs.
+
+A generated demo result is an **opening lesson**, not a claim to reproduce an entire two-hour lecture. The player displays that scope. Missing or unreadable source information must be stated instead of guessed.
+
+The prior extension prototype and its separate verification are retained in this repository, but they are not the demo entry point.
+
+## Check the running demo
+
+`npm run test:demo` checks the blank entry screen, keyboard flow, bubble placement and mobile layout without provider calls. `npm run test:demo -- --prepared` additionally plays an existing real prepared lesson and checks its transcript/activity; it does not generate another lesson. Install the task-local browser with `PLAYWRIGHT_BROWSERS_PATH=.cache/playwright npx playwright install chromium` if needed.
