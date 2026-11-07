@@ -20,6 +20,42 @@ try{
  await page.getByRole('textbox').waitFor();
  if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error('Mobile layout overflows horizontally.');
  console.log('Passed: blank screen, shortcut, centred bubble, Escape, mobile layout and reduced motion.');
+ if(process.argv.includes('--stage')){
+  const stage=await browser.newPage({viewport:{width:1440,height:900}});
+  const forbidden=[];
+  stage.on('request',request=>{if(request.method()!=='GET'||!request.url().startsWith('http://127.0.0.1:4320/')||request.resourceType()==='eventsource')forbidden.push(request.url());});
+  await stage.goto('http://127.0.0.1:4320/stage');
+  if((await stage.locator('body').innerText()).trim())throw new Error('Stage demo must also start blank.');
+  await stage.keyboard.press(process.platform==='darwin'?'Meta+k':'Control+k');
+  const input=stage.getByRole('textbox',{name:'Your lecture request'});
+  await input.waitFor();
+  if(await input.getAttribute('readonly')===null)throw new Error('Stage request must be fixed.');
+  await stage.getByRole('button',{name:'Start stage demo',exact:true}).waitFor();
+  await stage.waitForFunction(()=>document.querySelector('audio')?.readyState>=2);
+  const started=Date.now();
+  await stage.getByRole('button',{name:'Start stage demo',exact:true}).click();
+  await stage.waitForFunction(()=>document.querySelectorAll('.activity li').length>=2);
+  if(await stage.getByRole('button',{name:'Play lecture',exact:true}).count())throw new Error('Replay skipped the recorded activity.');
+  await stage.getByRole('button',{name:'Play lecture',exact:true}).waitFor({timeout:20_000});
+  const elapsed=Date.now()-started;
+  if(elapsed>=20_000)throw new Error('Stage demo took more than twenty seconds.');
+  const playBox=await stage.getByRole('button',{name:'Play lecture',exact:true}).boundingBox();
+  if(!playBox||playBox.y+playBox.height>866)throw new Error('The stage player is below the presentation viewport.');
+  const firstActions=await stage.locator('.activity li').evaluateAll(rows=>rows.map(row=>({text:row.textContent,status:row.className})));
+  await stage.getByRole('button',{name:'Play lecture',exact:true}).click();
+  await stage.waitForFunction(()=>document.querySelector('audio')?.currentTime>.25);
+  await stage.getByRole('button',{name:'Pause lecture',exact:true}).click();
+  await stage.getByRole('button',{name:/Replay stage demo/}).click();
+  await stage.getByRole('button',{name:'Play lecture',exact:true}).waitFor({timeout:20_000});
+  const repeatedActions=await stage.locator('.activity li').evaluateAll(rows=>rows.map(row=>({text:row.textContent,status:row.className})));
+  if(JSON.stringify(firstActions)!==JSON.stringify(repeatedActions))throw new Error('Stage replay changed between runs.');
+  if(await stage.getByRole('button',{name:/Refresh from/}).count())throw new Error('Stage mode exposes live refresh.');
+  if(forbidden.length)throw new Error('Stage demo made a live or external request: '+forbidden.join(', '));
+  await stage.evaluate(()=>window.scrollTo(0,0));
+  await stage.screenshot({path:'.tmp/demo-stage-ready.png',fullPage:true});
+  console.log(`Passed: stage replay ready in ${(elapsed/1000).toFixed(2)}s, identical repeat, real audio playback, fixed request and no live/external requests.`);
+  await stage.close();
+ }
  if(process.argv.includes('--prepared')){
   const root=resolve('.data/demo');let prepared;
   for(const id of await readdir(root)){

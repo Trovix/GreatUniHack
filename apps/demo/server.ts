@@ -5,14 +5,17 @@ import {readFile,writeFile,mkdir,readdir}from'node:fs/promises';
 import{resolve,join,extname}from'node:path';
 import{createProviders}from'../api/providers';
 import{atomicWrite}from'../api/store';
-import{cleanProductText,mergeActions,observeAgentActions,readAgentActions,type Activity}from'./activity';
+import{cleanProductText,mergeActions,observeAgentActions}from'./activity';
+import{loadPreparedStage}from'./prepared';
+import type{Run}from'./types';
 
 type Source={title:string;course:string;lectureDate:string;transcript:string;notes:string;sources:{label:string;kind:string;url:string}[];warnings:string[]};
-type Run={id:string;request:string;status:'running'|'ready'|'error'|'cancelled';events:Activity[];title?:string;course?:string;date?:string;sources?:Source['sources'];script?:string;audio?:boolean;duration?:number;scope?:string;error?:string;activityNotice?:string};
 const root=resolve('.data/demo');await mkdir(root,{recursive:true,mode:0o700});
 const port=Number(process.env.DEMO_PORT||4320),origin=`http://127.0.0.1:${port}`,cookie=randomBytes(32).toString('hex');
 const runs=new Map<string,Run>(),streams=new Map<string,Set<ServerResponse>>(),controllers=new Map<string,AbortController>(),sessions=new Map<string,string>();
 let active:string|undefined;
+let prepared:Awaited<ReturnType<typeof loadPreparedStage>>|undefined;
+try{prepared=await loadPreparedStage(resolve('.data/demo-stage'));}catch{console.log('Stage demo is not prepared. Run npm run demo:prepare with a completed lesson ID.');}
 
 
 const safeUrl=(raw:string)=>{try{const u=new URL(raw);if(!['http:','https:'].includes(u.protocol))return '';const clean=new URL(u.origin+u.pathname);for(const key of ['id','courseid','section']){const value=u.searchParams.get(key);if(value&&/^\d{1,12}$/.test(value))clean.searchParams.set(key,value);}return clean.href;}catch{return '';}};
@@ -87,6 +90,14 @@ const server=http.createServer(async(req,res)=>{try{
  if(path.startsWith('/demo-api/')){
   if(!req.headers.cookie?.split(';').some(x=>x.trim()==='lecture_demo='+cookie)){json(res,401,{error:'Refresh the demo to reconnect.'});return;}
   if(req.method==='POST'&&req.headers.origin!==origin){json(res,403,{error:'Use the local demo window.'});return;}
+  if(path==='/demo-api/stage'&&req.method==='GET'){
+   if(!prepared){json(res,503,{error:'The stage demo is not prepared on this machine. A completed lecture and its audio are required.'});return;}
+   json(res,200,{...prepared.stage,run:publicRun(prepared.stage.run)});return;
+  }
+  if(path==='/demo-api/stage/audio'&&req.method==='GET'){
+   if(!prepared){json(res,503,{error:'The prepared narration is unavailable.'});return;}
+   res.writeHead(200,{'Content-Type':'audio/wav','Content-Length':prepared.audio.length,'Cache-Control':'private, max-age=86400'});res.end(prepared.audio);return;
+  }
   if(path==='/demo-api/runs'&&req.method==='POST'){
       if(!req.headers['content-type']?.startsWith('application/json')){json(res,415,{error:'JSON required'});return;}
    let bytes='';for await(const chunk of req){bytes+=chunk.toString();if(bytes.length>6000)throw new Error('Request too large.');}
@@ -108,10 +119,10 @@ const server=http.createServer(async(req,res)=>{try{
  }
  if(req.method!=='GET'){json(res,405,{error:'Method not allowed'});return;}
  if(path.includes('..')||/%2e|%2f|%5c/i.test(req.url||'')){json(res,400,{error:'Invalid path'});return;}
- const file=join(resolve('dist/demo'),path==='/'?'index.html':path);const bytes=await readFile(file);
- if(path==='/'){res.setHeader('Set-Cookie',`lecture_demo=${cookie}; HttpOnly; SameSite=Strict; Path=/`);res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self' blob:; img-src 'self' data:; frame-ancestors 'none'");}
+ const isPage=path==='/'||path==='/stage'||path==='/stage/';
+ const file=join(resolve('dist/demo'),isPage?'index.html':path);const bytes=await readFile(file);
+ if(isPage){res.setHeader('Set-Cookie',`lecture_demo=${cookie}; HttpOnly; SameSite=Strict; Path=/`);res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self' blob:; img-src 'self' data:; frame-ancestors 'none'");}
  res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream'});res.end(bytes);
  }catch(e){if(!res.headersSent)json(res,404,{error:'The local demo could not serve that request.'});else res.end();}});
-for(const run of runs.values()){const session=sessions.get(run.id);if(run.status==='ready'&&session){try{const records=await readAgentActions(session);if(mergeActions(run.events,records))publish(run);}catch{}}}
 server.listen(port,'127.0.0.1',()=>console.log(`Lecture demo ready: ${origin} · Cmd/Ctrl K opens a request. Claude via Aside + ElevenLabs enabled.`));
 process.on('SIGINT',()=>{for(const control of controllers.values())control.abort();server.close();process.exit(0);});

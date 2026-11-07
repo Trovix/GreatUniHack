@@ -19,6 +19,7 @@
     "verify:speech": "tsx scripts/verify-speech.ts",
     "demo": "node --import tsx apps/demo/server.ts",
     "build:demo": "vite build --config vite.demo.config.ts",
+    "demo:prepare": "node --import tsx scripts/prepare-stage.ts",
     "test:demo": "node scripts/test-demo.mjs"
   },
   "dependencies": {

@@ -4,7 +4,14 @@ Start on a blank white screen with an inset black frame and a speech bubble at t
 
 Example: **Teach me the content from my latest microeconomics lecture**.
 
-The demo uses the user's signed-in **Aside CLI**, explicitly selecting **Claude Sonnet 5.5** through its connected Claude subscription. It retrieves the actual Moodle transcript and matching lecture notes/slides, adapts an opening teaching lesson so it can be understood without the visuals, and generates real **ElevenLabs** narration. The page shows live activity, then a player, adapted transcript and source links. Repeating the same request within an hour reuses the real prepared lesson without another provider call; **Refresh from Moodle** explicitly runs it again. It does not silently substitute example course content if retrieval fails.
+There are two entry points:
+
+- **Live demo:** http://127.0.0.1:4320/ — accepts any lecture request and performs the actual retrieval and generation.
+- **Stage demo:** http://127.0.0.1:4320/stage — a fixed request replays the pinned real run's activity in **14 seconds**, then plays its prepared narration. The page explicitly labels the activity as a replay and the audio as prepared in advance. It makes no live retrieval, model or speech API calls, has no one-hour expiry, and can be replayed repeatedly. Both start with the same blank screen and keyboard shortcut; mode links appear after opening the request.
+
+The stage demo reads a private local snapshot rather than choosing the latest run at presentation time. Before presenting, pin a completed real lesson with `npm run demo:prepare -- <run-id>` (omit the ID to select the latest completed lesson), then restart the demo server. This copies its activity, adapted transcript and WAV into ignored `.data/demo-stage/` and checks their hashes at startup. The existing snapshot remains fixed until explicitly prepared again. Keep that directory on the presentation machine; it is not committed to Git. Missing or changed assets produce an explicit blocker and never trigger a live run.
+
+The live demo uses the user's signed-in **Aside CLI**, explicitly selecting **Claude Sonnet 5.5** through its connected Claude subscription. It retrieves the actual Moodle transcript and matching lecture notes/slides, adapts an opening teaching lesson so it can be understood without the visuals, and generates real **ElevenLabs** narration. The page shows live activity, then a player, adapted transcript and source links. Each submission in the live interface starts a fresh run; an existing run link opens its saved result. It does not silently substitute example course content if retrieval fails.
 
 The activity feed stays visible and reports each observed operation, its agent, start time, duration and actual result. It polls the full parent and child-task histories while retrieval and adaptation run, then saves the action history locally with the lesson. Parallel operations remain separate, and failed attempts stay marked as failures even if a later attempt succeeds. Only operation metadata is exposed; reasoning, commands and raw tool results are excluded. The website uses task descriptions instead of provider names, with the official Moodle wordmark inline. If detailed activity becomes unavailable, the page reports that rather than inventing progress.
 
@@ -28,3 +35,5 @@ The prior extension prototype and its separate verification are retained in this
 ## Check the running demo
 
 `npm run test:demo` checks the blank entry screen, keyboard flow, bubble placement and mobile layout without provider calls. `npm run test:demo -- --prepared` additionally plays an existing real prepared lesson and checks its transcript/activity; it does not generate another lesson. Install the task-local browser with `PLAYWRIGHT_BROWSERS_PATH=.cache/playwright npx playwright install chromium` if needed.
+
+`npm run test:demo -- --stage` measures the stage replay against the twenty-second limit, repeats it to check identical steps/results, plays the stored audio and checks that there are no live or external browser requests.
