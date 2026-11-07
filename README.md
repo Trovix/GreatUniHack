@@ -1,6 +1,6 @@
 # Lecture Access
 
-The current Earshot demo has a collapsible lecture-history sidebar, an inset frame and a speech bubble. Requests can be typed or dictated through the microphone button. **Cmd/Ctrl+K** moves the bubble to the centre and opens a typed request. **Claude through the user's Aside CLI** retrieves the actual Moodle transcript and notes, adapts a spoken opening lesson, and **ElevenLabs** narrates it. Live steps show the work as it happens. The separate deterministic site replays its economics lesson over 40 seconds; its saved lecture is already available in the sidebar under the lecture title.
+The current demo is a minimal lecture-request interface: a blank white screen, inset black frame and a speech bubble. **Cmd/Ctrl+K** moves the bubble to the centre and opens a typed request. **Claude through the user's Aside CLI** retrieves the actual Moodle transcript and notes, adapts a spoken opening lesson, and **ElevenLabs** narrates it. Live stages show the work as it happens.
 
 ```sh
 export PATH="$PWD/node_modules/node/bin:$PATH"

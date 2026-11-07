@@ -5,26 +5,23 @@ import {ProductText} from './ProductText';
 import {Narration} from './Narration';
 import {OrbArt} from './OrbArt';
 import {Trace} from './ActivityTrace';
-import {Sidebar} from './Sidebar';
-import {Dictation} from './Dictation';
 import {preparationTitle} from './trace';
 import type {Run} from './types';
 import {stageFrame,stageTimeline,type PreparedStage} from './stage';
 const stageMode=location.pathname.replace(/\/$/,'')==='/stage';
 function App(){
- const[open,setOpen]=useState(()=>new URLSearchParams(location.search).has('new')),[request,setRequest]=useState(''),[run,setRun]=useState<Run>(),[busy,setBusy]=useState(false),[error,setError]=useState(''),[showScript,setShowScript]=useState(false),[playing,setPlaying]=useState(false),[time,setTime]=useState(0),[duration,setDuration]=useState(0),[activityOpen,setActivityOpen]=useState(true);
+ const[open,setOpen]=useState(false),[request,setRequest]=useState(''),[run,setRun]=useState<Run>(),[busy,setBusy]=useState(false),[error,setError]=useState(''),[showScript,setShowScript]=useState(false),[playing,setPlaying]=useState(false),[time,setTime]=useState(0),[duration,setDuration]=useState(0),[activityOpen,setActivityOpen]=useState(true);
  const[prepared,setPrepared]=useState<PreparedStage>();
- const[dictating,setDictating]=useState(false);
  const replayTimer=useRef<ReturnType<typeof setInterval>|undefined>(undefined);
  const input=useRef<HTMLTextAreaElement>(null),audio=useRef<HTMLAudioElement>(null),stream=useRef<EventSource|undefined>(undefined);
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();setOpen(true);requestAnimationFrame(()=>input.current?.focus());}if(e.key==='Escape'){audio.current?.pause();if(!busy&&!run)setOpen(false);}};document.addEventListener('keydown',key);return()=>{document.removeEventListener('keydown',key);};},[busy,run]);
  useEffect(()=>{if(open&&!run)setTimeout(()=>input.current?.focus(),350);},[open,run]);
  useEffect(()=>()=>{stream.current?.close();clearInterval(replayTimer.current);},[]);
- useEffect(()=>{if(!stageMode)return;const controller=new AbortController();void fetch('/demo-api/stage',{signal:controller.signal}).then(async response=>{const value=await response.json();if(!response.ok)throw new Error(value.error||'This lecture is unavailable. Please reconnect and try again.');setPrepared(value);if(new URLSearchParams(location.search).has('lesson')){setOpen(true);setRun(value.run);setRequest(value.run.request);}}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:'This lecture is unavailable. Please reconnect and try again.');});return()=>controller.abort();},[]);
+ useEffect(()=>{if(!stageMode)return;const controller=new AbortController();void fetch('/demo-api/stage',{signal:controller.signal}).then(async response=>{const value=await response.json();if(!response.ok)throw new Error(value.error||'This lecture is unavailable. Please reconnect and try again.');setPrepared(value);}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:'This lecture is unavailable. Please reconnect and try again.');});return()=>controller.abort();},[]);
  const watch=(id:string)=>{stream.current?.close();const source=new EventSource('/demo-api/runs/'+id+'/events');stream.current=source;source.onmessage=event=>{const next=JSON.parse(event.data)as Run;setRun(next);setRequest(next.request);if(next.status!=='running'){setBusy(false);source.close();}};source.onerror=()=>{source.close();setBusy(false);setError('The local connection closed. Your request and any completed audio remain saved.');};};
  useEffect(()=>{if(stageMode)return;const id=new URLSearchParams(location.search).get('run');if(id&&/^[a-f0-9-]{36}$/.test(id)){setOpen(true);setBusy(true);watch(id);}},[]);
 
- async function start(e:React.FormEvent,refresh=true){e.preventDefault();if(!request.trim()||busy||dictating)return;audio.current?.pause();stream.current?.close();setBusy(true);setPlaying(false);setError('');setRun(undefined);setShowScript(false);setTime(0);setActivityOpen(true);
+ async function start(e:React.FormEvent,refresh=true){e.preventDefault();if(!request.trim()||busy)return;audio.current?.pause();stream.current?.close();setBusy(true);setPlaying(false);setError('');setRun(undefined);setShowScript(false);setTime(0);setActivityOpen(true);
   if(stageMode){
    if(!prepared){setBusy(false);setError('This lecture is unavailable. Please reconnect and try again.');return;}
    clearInterval(replayTimer.current);if(audio.current)audio.current.currentTime=0;
@@ -39,7 +36,6 @@ function App(){
  const minutes=(v:number)=>`${Math.floor(v/60)}:${String(Math.floor(v%60)).padStart(2,'0')}`;
  return <main className={`canvas ${open?'is-open':''} ${run?'has-run':''} ${ready?'is-ready':''} ${stageMode?'is-stage':''}`}>
   <div className="frame" aria-hidden="true"/>
-  <Sidebar stageMode={stageMode} runId={run?.id} revision={(run?.id||'')+(run?.status||'')}/>
   <button className={`orb ${active?'is-active':''}`} aria-label={open?'Focus your lecture request':'Open lecture request. Command or Control K'} aria-keyshortcuts="Meta+K Control+K" onClick={()=>{setOpen(true);input.current?.focus();}}>
    <OrbArt/>
   </button>
@@ -48,9 +44,8 @@ function App(){
   {open&&<div className="experience">
    {!run&&<div className="welcome"><h1>What would you like to learn?</h1></div>}
    {run?<div className="submitted"><p><ProductText>{run.request}</ProductText></p></div>:<form className="request" onSubmit={start}>
-    <label className="sr-only" htmlFor="request">Your lecture request</label><textarea id="request" ref={input} value={request} onChange={e=>setRequest(e.target.value)} placeholder={stageMode?'':'Teach me the content from my latest microeconomics lecture'} rows={run?1:2} disabled={busy||dictating} maxLength={1200} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();void start(e);}}}/>
-    <Dictation disabled={busy} onBusy={setDictating} onText={text=>{setRequest(previous=>(previous.trim()?previous.trim()+' '+text:text).slice(0,1200));requestAnimationFrame(()=>input.current?.focus());}}/>
-    <button type="submit" disabled={busy||dictating||!request.trim()||stageMode&&!prepared} aria-label="Start learning"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+    <label className="sr-only" htmlFor="request">Your lecture request</label><textarea id="request" ref={input} value={request} onChange={e=>setRequest(e.target.value)} placeholder={stageMode?'':'Teach me the content from my latest microeconomics lecture'} rows={run?1:2} disabled={busy} maxLength={1200} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();void start(e);}}}/>
+    <button type="submit" disabled={busy||!request.trim()||stageMode&&!prepared} aria-label="Start learning"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
    </form>}
    {!run&&<div className="request-foot"><span><ProductText>From your Moodle course to a lecture you can listen to.</ProductText></span><kbd>↵</kbd></div>}
    {error&&<p className="error" role="alert"><ProductText>{error}</ProductText></p>}
