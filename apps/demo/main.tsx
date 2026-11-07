@@ -17,7 +17,7 @@ function App(){
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();setOpen(true);requestAnimationFrame(()=>input.current?.focus());}if(e.key==='Escape'){audio.current?.pause();if(!busy&&!run)setOpen(false);}};document.addEventListener('keydown',key);return()=>{document.removeEventListener('keydown',key);};},[busy,run]);
  useEffect(()=>{if(open&&!run)setTimeout(()=>input.current?.focus(),350);},[open,run]);
  useEffect(()=>()=>{stream.current?.close();clearInterval(replayTimer.current);},[]);
- useEffect(()=>{if(!stageMode)return;const controller=new AbortController();void fetch('/demo-api/stage',{signal:controller.signal}).then(async response=>{const value=await response.json();if(!response.ok)throw new Error(value.error||'This lecture is unavailable. Please reconnect and try again.');setPrepared(value);setRequest(value.run.request);}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:'This lecture is unavailable. Please reconnect and try again.');});return()=>controller.abort();},[]);
+ useEffect(()=>{if(!stageMode)return;const controller=new AbortController();void fetch('/demo-api/stage',{signal:controller.signal}).then(async response=>{const value=await response.json();if(!response.ok)throw new Error(value.error||'This lecture is unavailable. Please reconnect and try again.');setPrepared(value);}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:'This lecture is unavailable. Please reconnect and try again.');});return()=>controller.abort();},[]);
  const watch=(id:string)=>{stream.current?.close();const source=new EventSource('/demo-api/runs/'+id+'/events');stream.current=source;source.onmessage=event=>{const next=JSON.parse(event.data)as Run;setRun(next);setRequest(next.request);if(next.status!=='running'){setBusy(false);source.close();}};source.onerror=()=>{source.close();setBusy(false);setError('The local connection closed. Your request and any completed audio remain saved.');};};
  useEffect(()=>{if(stageMode)return;const id=new URLSearchParams(location.search).get('run');if(id&&/^[a-f0-9-]{36}$/.test(id)){setOpen(true);setBusy(true);watch(id);}},[]);
 
@@ -25,8 +25,8 @@ function App(){
   if(stageMode){
    if(!prepared){setBusy(false);setError('This lecture is unavailable. Please reconnect and try again.');return;}
    clearInterval(replayTimer.current);if(audio.current)audio.current.currentTime=0;
-   const timeline=stageTimeline(prepared.run),started=performance.now();setRun(stageFrame(prepared.run,timeline,0));
-   replayTimer.current=setInterval(()=>{const elapsed=performance.now()-started;setRun(stageFrame(prepared.run,timeline,elapsed));if(elapsed>=prepared.durationMs){clearInterval(replayTimer.current);setBusy(false);}},50);
+   const replay={...prepared.run,request:request.trim()},timeline=stageTimeline(replay),started=performance.now();setRun(stageFrame(replay,timeline,0));
+   replayTimer.current=setInterval(()=>{const elapsed=performance.now()-started;setRun(stageFrame(replay,timeline,elapsed));if(elapsed>=prepared.durationMs){clearInterval(replayTimer.current);setBusy(false);}},50);
    return;
   }
   try{const response=await fetch('/demo-api/runs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request:request.trim(),refresh})});const data=await response.json();if(!response.ok)throw new Error(data.error||'Could not start your request.');watch(data.id);}catch(e){setBusy(false);setError(e instanceof Error?e.message:'Could not start.');}}
@@ -42,9 +42,9 @@ function App(){
   {(stageMode&&prepared||!stageMode&&ready)&&<audio ref={audio} src={stageMode?prepared?.audioUrl:'/demo-api/runs/'+run?.id+'/audio'} preload={stageMode?'auto':'metadata'} onPlay={()=>{setPlaying(true);setActivityOpen(false);}} onPause={()=>setPlaying(false)} onTimeUpdate={e=>setTime(e.currentTarget.currentTime)} onLoadedMetadata={e=>setDuration(e.currentTarget.duration)} onEnded={()=>setPlaying(false)}/>}
   <div className="content-viewport">
   {open&&<div className="experience">
-   {!run&&<div className="welcome"><p className="eyebrow">Earshot · A lecture, on your terms.</p><h1>What would you like to learn?</h1></div>}
+   {!run&&<div className="welcome"><h1>What would you like to learn?</h1></div>}
    {run?<div className="submitted"><p><ProductText>{run.request}</ProductText></p></div>:<form className="request" onSubmit={start}>
-    <label className="sr-only" htmlFor="request">Your lecture request</label><textarea id="request" ref={input} value={request} onChange={e=>setRequest(e.target.value)} readOnly={stageMode} placeholder="Teach me the content from my latest microeconomics lecture" rows={run?1:2} disabled={busy} maxLength={1200} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();void start(e);}}}/>
+    <label className="sr-only" htmlFor="request">Your lecture request</label><textarea id="request" ref={input} value={request} onChange={e=>setRequest(e.target.value)} placeholder={stageMode?'':'Teach me the content from my latest microeconomics lecture'} rows={run?1:2} disabled={busy} maxLength={1200} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();void start(e);}}}/>
     <button type="submit" disabled={busy||!request.trim()||stageMode&&!prepared} aria-label="Start learning"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
    </form>}
    {!run&&<div className="request-foot"><span><ProductText>From your Moodle course to a lecture you can listen to.</ProductText></span><kbd>↵</kbd></div>}
@@ -62,7 +62,7 @@ function App(){
     </article>}
    </section>}
    {ready&&<button className="refresh quiet" onClick={e=>void start(e,true)}><ProductText>Prepare again</ProductText> <span>↻</span></button>}
-   {run&&!busy&&<button className="again quiet" aria-label="Back to request" onClick={()=>{audio.current?.pause();setRun(undefined);setRequest(stageMode?prepared?.run.request||'':'');setError('');requestAnimationFrame(()=>input.current?.focus());}}>Back to request <span aria-hidden="true">↵</span></button>}
+   {run&&!busy&&<button className="again quiet" aria-label="Back to request" onClick={()=>{audio.current?.pause();setRun(undefined);setRequest('');setError('');requestAnimationFrame(()=>input.current?.focus());}}>Back to request <span aria-hidden="true">↵</span></button>}
   </div>}
   </div>
   {open&&!run&&<button className="close" aria-label="Close request" onClick={()=>setOpen(false)}>esc</button>}

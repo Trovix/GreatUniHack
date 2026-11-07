@@ -29,11 +29,16 @@ try{
   await stage.keyboard.press(process.platform==='darwin'?'Meta+k':'Control+k');
   const input=stage.getByRole('textbox',{name:'Your lecture request'});
   await input.waitFor();
-  if(await input.getAttribute('readonly')===null)throw new Error('Stage request must be fixed.');
+  if(await input.inputValue()!==''||await input.getAttribute('readonly')!==null)throw new Error('Stage request must start empty and editable.');
+  if(await input.getAttribute('placeholder'))throw new Error('Stage request should have no prefilled-looking example.');
+  if(/A lecture, on your terms/i.test(await stage.locator('body').innerText()))throw new Error('Removed tagline is still visible.');
+  const firstRequest='Teach me today’s lecture';
+  await input.fill(firstRequest);
   await stage.getByRole('button',{name:'Start learning',exact:true}).waitFor();
   await stage.waitForFunction(()=>document.querySelector('audio')?.readyState>=2);
   const started=Date.now();
-  await stage.getByRole('button',{name:'Start learning',exact:true}).click();
+  if(await input.inputValue()!==firstRequest)throw new Error('Loading the prepared lesson overwrote the typed request.');
+  await input.press('Enter');
   await stage.waitForFunction(()=>document.querySelectorAll('.activity li').length>=2);
   if(await stage.locator('.phase-step').count()!==5)throw new Error('Preparation should show five readable steps.');
   await assertFrame(stage);
@@ -48,6 +53,8 @@ try{
   const playBox=await stage.getByRole('button',{name:'Play lecture',exact:true}).boundingBox();
   if(!playBox||playBox.y+playBox.height>866)throw new Error('The stage player is below the presentation viewport.');
   const firstActions=await stage.locator('.activity li').evaluateAll(rows=>rows.map(row=>({text:row.textContent,status:row.className})));
+  const firstTitle=await stage.locator('.lesson h1').innerText(),firstAudio=await stage.locator('audio').getAttribute('src');
+  if(await stage.locator('.submitted').innerText()!==firstRequest)throw new Error('Submitted request was replaced with the recorded request.');
   await stage.getByRole('button',{name:'Play lecture',exact:true}).click();
   await stage.waitForFunction(()=>document.querySelector('audio')?.currentTime>.25);
   await stage.getByRole('button',{name:'Pause lecture',exact:true}).click();
@@ -57,15 +64,21 @@ try{
   if(!footer||!frame||footer.y+footer.height>frame.y+frame.height-12)throw new Error('The footer crosses the frame.');
   const pinned=JSON.parse(await readFile('.data/demo-stage/run.json','utf8'));
   await verifyCaptions(stage,pinned.words,'stage');
-  await stage.getByRole('button',{name:/Prepare again/}).click();
+  await stage.getByRole('button',{name:'Back to request',exact:true}).click();
+  if(await input.inputValue()!=='')throw new Error('Returning to the request should clear the input.');
+  const secondRequest='Explain a different lecture please';
+  await input.fill(secondRequest);
+  await input.press('Enter');
   await stage.getByRole('button',{name:'Play lecture',exact:true}).waitFor({timeout:20_000});
   const repeatedActions=await stage.locator('.activity li').evaluateAll(rows=>rows.map(row=>({text:row.textContent,status:row.className})));
   if(JSON.stringify(firstActions)!==JSON.stringify(repeatedActions))throw new Error('Stage replay changed between runs.');
+  if(await stage.locator('.lesson h1').innerText()!==firstTitle||await stage.locator('audio').getAttribute('src')!==firstAudio)throw new Error('Different stage requests must produce the same lesson and audio.');
+  if(await stage.locator('.submitted').innerText()!==secondRequest)throw new Error('The second typed request was not preserved.');
   if(await stage.getByRole('button',{name:/Refresh from/}).count())throw new Error('Stage mode exposes live refresh.');
   if(forbidden.length)throw new Error('Stage demo made a live or external request: '+forbidden.join(', '));
   await stage.locator('.content-viewport').evaluate(element=>{element.scrollTop=0;});
   await stage.screenshot({path:'.tmp/demo-stage-ready.png',fullPage:true});
-  console.log(`Passed: stage replay ready in ${(elapsed/1000).toFixed(2)}s, identical repeat, real audio playback, fixed request and no live/external requests.`);
+  console.log(`Passed: stage replay ready in ${(elapsed/1000).toFixed(2)}s, empty editable request, two different Enter submissions with identical lesson/audio, real audio playback and no live/external requests.`);
   await stage.close();
  }
  if(process.argv.includes('--prepared')){
