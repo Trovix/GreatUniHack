@@ -11,7 +11,7 @@ try{
  await page.keyboard.press(process.platform==='darwin'?'Meta+k':'Control+k');
  await page.getByRole('textbox',{name:'Your lecture request'}).waitFor();
  await page.waitForTimeout(700);
- const orb=await page.getByRole('button',{name:'Focus your lecture request'}).boundingBox();
+ const orb=await page.getByRole('button',{name:'Speak your request'}).boundingBox();
  if(!orb||Math.abs(orb.x+orb.width/2-720)>3)throw new Error('The bubble did not centre.');
  await page.keyboard.press('Escape');
  if(await page.getByRole('textbox').count())throw new Error('Escape should close the input.');

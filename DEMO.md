@@ -17,6 +17,18 @@ The preparation view shows five clear milestones. Expanding “View detailed act
 
 Both versions display a synchronized reader beneath the audio controls. It follows actual word timestamps from the narration, reveals spoken words in black, and keeps the next two lines grey. The text follows the media clock across pauses, seeking and playback speeds; it respects reduced-motion preferences. Completed preparation folds automatically so the player and reader have room. Content scrolls inside an inset viewport and never behind the frame; the bubble and control positions retain the original demo layout. The full transcript remains available. New narration saves its original alignment alongside the WAV; stage preparation requires these timings and includes them in its pinned snapshot. There is no timing based on guessed reading speed.
 
+## Voice
+
+The bubble is the microphone. **Tap it** and speak (it stops when you pause), or **hold Space** and release to send. Speech is transcribed by ElevenLabs speech-to-text; if the key lacks that permission, the server detects it at startup and the page uses the browser's speech recognition instead. Recordings are not stored.
+
+After you use your voice, Earshot answers in the narration voice, written for someone who is only listening: it reads your request back, announces each of the five steps, gives a reminder every 30 seconds during a long live step, summarises the lecture when it is ready (title, course, length), reads errors aloud, and says when the lesson ends. Typed requests stay silent. Short tones confirm when the microphone opens and closes.
+
+While a lesson plays, say *play*, *pause*, *go back* (or *go back thirty seconds*), *skip ahead*, *slower*, *faster*, *start over*, *where am I*, *read the transcript* or *help*. Ask *what lectures do I have?* or *open the latest one* at any time, or ask for a new lecture.
+
+Fixed prompts, and the stage lecture's summary, are voiced once at startup and cached in ignored `.data/demo-voice/`, so stage replays make no speech calls. Voice input itself is a live ElevenLabs call; typing keeps the stage fully offline.
+
+**Past lectures** (top-left, or **Cmd/Ctrl+B**) lists prepared lectures; choose one to open it.
+
 ## Run
 
 ```sh
