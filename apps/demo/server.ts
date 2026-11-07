@@ -10,18 +10,20 @@ import{loadPreparedStage}from'./prepared';
 import type{Run}from'./types';
 import{wordsFromAlignment}from'./captions';
 import{sendAudio}from'./audio';
+import{agentSessionId}from'./agent-session';
 
 type Source={title:string;course:string;lectureDate:string;transcript:string;notes:string;sources:{label:string;kind:string;url:string}[];warnings:string[]};
 const root=resolve('.data/demo');await mkdir(root,{recursive:true,mode:0o700});
 const port=Number(process.env.DEMO_PORT||4320),origin=`http://127.0.0.1:${port}`,cookie=randomBytes(32).toString('hex');
 const runs=new Map<string,Run>(),streams=new Map<string,Set<ServerResponse>>(),controllers=new Map<string,AbortController>(),sessions=new Map<string,string>();
+function rememberSession(runId:string,value:unknown){const id=agentSessionId(value);if(id)sessions.set(runId,id);}
 let active:string|undefined;
 let prepared:Awaited<ReturnType<typeof loadPreparedStage>>|undefined;
 try{prepared=await loadPreparedStage(resolve('.data/demo-stage'));}catch{console.log('Stage demo is not prepared. Run npm run demo:prepare with a completed lesson ID.');}
 
 
 const safeUrl=(raw:string)=>{try{const u=new URL(raw);if(!['http:','https:'].includes(u.protocol))return '';const clean=new URL(u.origin+u.pathname);for(const key of ['id','courseid','section']){const value=u.searchParams.get(key);if(value&&/^\d{1,12}$/.test(value))clean.searchParams.set(key,value);}return clean.href;}catch{return '';}};
-for(const entry of await readdir(root)){if(!/^[a-f0-9-]{36}$/.test(entry))continue;try{const saved=JSON.parse(await readFile(join(root,entry,'run.json'),'utf8'))as Run;if(saved.status==='running'){saved.status='error';saved.error='The demo service restarted. Your retrieved sources remain saved.';}try{const envelope=parseJson(await readFile(join(root,entry,'aside-result.json'),'utf8'));if(envelope.session?.id)sessions.set(saved.id,envelope.session.id);const original=typeof envelope.answer==='string'?parseJson(envelope.answer):envelope;if(Array.isArray(original.sources))saved.sources=original.sources.map((source:any)=>({label:String(source.label||'Course material'),kind:String(source.kind||'source'),url:safeUrl(String(source.url||''))})).filter((source:any)=>source.url);}catch{}runs.set(saved.id,saved);}catch{}}
+for(const entry of await readdir(root)){if(!/^[a-f0-9-]{36}$/.test(entry))continue;try{const saved=JSON.parse(await readFile(join(root,entry,'run.json'),'utf8'))as Run;if(saved.status==='running'){saved.status='error';saved.error='The demo service restarted. Your retrieved sources remain saved.';}try{const envelope=parseJson(await readFile(join(root,entry,'aside-result.json'),'utf8'));if(envelope.session?.id)rememberSession(saved.id,envelope.session.id);const original=typeof envelope.answer==='string'?parseJson(envelope.answer):envelope;if(Array.isArray(original.sources))saved.sources=original.sources.map((source:any)=>({label:String(source.label||'Course material'),kind:String(source.kind||'source'),url:safeUrl(String(source.url||''))})).filter((source:any)=>source.url);}catch{}runs.set(saved.id,saved);}catch{}}
 const publicRun=(run:Run)=>({...run,activityNotice:run.activityNotice?(run.status==='running'?run.activityNotice:'Some detailed activity could not be recovered. Completed steps and retrieved materials are saved.'):undefined,events:run.events.map(event=>({...event,title:productStage(event.stage,event.title),detail:event.stage==='speech'?'Generating speech from your adapted lecture. Playback starts when you choose.':event.detail?cleanProductText(event.detail):undefined})),error:run.error?cleanProductText(run.error):undefined,sources:run.sources?.map(source=>({...source,label:cleanProductText(source.label),kind:cleanProductText(source.kind)}))});
 function productStage(stage:string,title:string){const names:Record<string,string>={aside:'Finding your lecture on Moodle',transcript:'Reading the lecture transcript from Moodle',notes:'Reading the matching lecture notes from Moodle',rewrite:'Explaining the lecture without visual references',speech:'Creating your narrated lesson'};return names[stage]||cleanProductText(title);}
 const writes=new Map<string,Promise<unknown>>();
@@ -47,11 +49,11 @@ async function getSources(run:Run,signal:AbortSignal):Promise<Source>{
 
   signal.addEventListener('abort',abort,{once:true});
   child.stdout.on('data',chunk=>{out+=chunk.toString();if(out.length>2200000){child.kill();finish(new Error('The retrieved lecture material is too large for this demo.'));}});
-  child.stderr.on('data',chunk=>{const text=chunk.toString().replace(/\x1b\[[0-9;]*m/g,'');diagnostic=(diagnostic+text).slice(-4000);const m=diagnostic.match(/(?:session(?:\s+id)?(?:\s+started)?\s*[:=]\s*|\/sessions\/|\bsession\s+)([A-Za-z0-9_-]{12,80})/i);if(m)sessions.set(run.id,m[1]);});
+  child.stderr.on('data',chunk=>{const text=chunk.toString().replace(/\x1b\[[0-9;]*m/g,'');diagnostic=(diagnostic+text).slice(-4000);const m=diagnostic.match(/(?:session(?:\s+id)?(?:\s+started)?\s*[:=]\s*|\/sessions\/|\bsession\s+)([A-Za-z0-9_-]{12,80})/i);if(m)rememberSession(run.id,m[1]);});
   child.on('error',()=>finish(new Error('The course browser connection is unavailable. Open Moodle and try again.')));
   child.on('close',code=>{if(code===0)finish();else finish(new Error(/sign.in|signed out|login|log in/i.test(diagnostic)?'Please sign in to your course browser and Moodle, then retry.':/permission|approval/i.test(diagnostic)?'Permission is needed to read the lecture materials. Check the course browser.':'The Moodle request could not complete. Check that the transcript and notes are available and you are signed in.'));});
  });
- const envelope=parseJson(output);if(envelope.session?.id)sessions.set(run.id,envelope.session.id);const saved=envelope.session?envelope:{session:{id:sessions.get(run.id)},answer:output};await writeFile(join(root,run.id,'aside-result.json'),JSON.stringify(saved),{mode:0o600});return sourceResult(output);
+ const envelope=parseJson(output);if(envelope.session?.id)rememberSession(run.id,envelope.session.id);const saved=envelope.session?envelope:{session:{id:sessions.get(run.id)},answer:output};await writeFile(join(root,run.id,'aside-result.json'),JSON.stringify(saved),{mode:0o600});return sourceResult(output);
 }
 async function rewrite(source:Source,run:Run,signal:AbortSignal){
  const session=sessions.get(run.id);
@@ -64,10 +66,10 @@ async function rewrite(source:Source,run:Run,signal:AbortSignal){
  const envelope=parseJson(output);const result=typeof envelope.answer==='string'?parseJson(envelope.answer):envelope;
  if(typeof result.script!=='string'||result.script.length<300||result.script.length>12000)throw new Error('The adaptation returned an incomplete lesson. Your sources are saved.');return result as{title:string;scope:string;script:string};
 }
-async function pipeline(run:Run){const control=new AbortController();controllers.set(run.id,control);const signal=control.signal;
+async function pipeline(run:Run,savedSource?:Source){const control=new AbortController();controllers.set(run.id,control);const signal=control.signal;
  try{
-  await mkdir(join(root,run.id),{recursive:true,mode:0o700});activity(run,'aside','Finding your lecture on Moodle','Looking for the recording and matching notes in your course.');
-  const source=await getSources(run,signal);if(signal.aborted)return;run.course=source.course;run.date=source.lectureDate;run.sources=source.sources;
+  await mkdir(join(root,run.id),{recursive:true,mode:0o700});if(!savedSource)activity(run,'aside','Finding your lecture on Moodle','Looking for the recording and matching notes in your course.');
+  const source=savedSource||await getSources(run,signal);if(signal.aborted)return;run.course=source.course;run.date=source.lectureDate;run.sources=source.sources;
   await writeFile(join(root,run.id,'sources.json'),JSON.stringify(source,null,2),{mode:0o600});
   activity(run,'transcript','Reading the lecture transcript','Retrieved the actual recording transcript from your course.');
   activity(run,'notes','Connecting it to your lecture notes',source.title);
@@ -129,5 +131,7 @@ const server=http.createServer(async(req,res)=>{try{
  if(isPage){res.setHeader('Set-Cookie',`lecture_demo=${cookie}; HttpOnly; SameSite=Strict; Path=/`);res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self' blob:; img-src 'self' data:; frame-ancestors 'none'");}
  res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream'});res.end(bytes);
  }catch(e){if(!res.headersSent)json(res,404,{error:'The local demo could not serve that request.'});else res.end();}});
+const resumeId=process.env.DEMO_RESUME_RUN_ID;
+if(resumeId){const run=runs.get(resumeId);if(!run||!['error','cancelled'].includes(run.status))throw new Error('Only a saved failed or cancelled lecture can be resumed.');const source=sourceResult(await readFile(join(root,run.id,'sources.json'),'utf8'));run.status='running';delete run.error;active=run.id;void pipeline(run,source);}
 server.listen(port,'127.0.0.1',()=>console.log(`Lecture demo ready: ${origin} · Cmd/Ctrl K opens a request. Claude via Aside + ElevenLabs enabled.`));
 process.on('SIGINT',()=>{for(const control of controllers.values())control.abort();server.close();process.exit(0);});
