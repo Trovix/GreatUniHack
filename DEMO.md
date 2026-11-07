@@ -15,6 +15,8 @@ The live demo uses the user's signed-in **Aside CLI**, explicitly selecting **Cl
 
 The activity feed stays visible and reports each observed operation, its agent, start time, duration and actual result. It polls the full parent and child-task histories while retrieval and adaptation run, then saves the action history locally with the lesson. Parallel operations remain separate, and failed attempts stay marked as failures even if a later attempt succeeds. Only operation metadata is exposed; reasoning, commands and raw tool results are excluded. The website uses task descriptions instead of provider names, with the official Moodle wordmark inline. If detailed activity becomes unavailable, the page reports that rather than inventing progress.
 
+Both versions display a synchronized reader beneath the audio controls. It follows actual word timestamps from the narration, reveals spoken words in black, and keeps the next two lines grey. The text follows the media clock across pauses, seeking and playback speeds; it respects reduced-motion preferences. Starting playback folds the completed activity feed so the player and reader have room. The full transcript remains available. New narration saves its original alignment alongside the WAV; stage preparation requires these timings and includes them in its pinned snapshot. There is no timing based on guessed reading speed.
+
 ## Run
 
 ```sh

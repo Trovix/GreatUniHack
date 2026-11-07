@@ -7,7 +7,7 @@ import {assertPreparedRun,digest,loadPreparedStage} from '../../apps/demo/prepar
 import type {Run} from '../../apps/demo/types';
 
 const at=(seconds:number)=>new Date(Date.UTC(2026,10,7,10,0,seconds)).toISOString();
-const recorded:Run={id:'recorded-lesson',request:'Teach me my lecture',status:'ready',audio:true,duration:30,title:'Recorded lesson',script:'A recorded teaching paragraph. '.repeat(15),events:[
+const recorded:Run={id:'recorded-lesson',request:'Teach me my lecture',status:'ready',audio:true,duration:30,title:'Recorded lesson',script:'A recorded teaching paragraph. '.repeat(15),words:[{text:'A',start:0,end:.5},{text:'recorded',start:.5,end:1}],events:[
  {id:1,stage:'aside',title:'Finding your lecture on Moodle',at:at(0),status:'done'},
  {id:2,stage:'action',title:'Reading notes',at:at(1),finishedAt:at(2),status:'done',agent:'Lecture agent'},
  {id:3,stage:'action',title:'Reading slides',at:at(1),finishedAt:at(3),status:'error',agent:'Source agent 1'},

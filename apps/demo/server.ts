@@ -8,6 +8,8 @@ import{atomicWrite}from'../api/store';
 import{cleanProductText,mergeActions,observeAgentActions}from'./activity';
 import{loadPreparedStage}from'./prepared';
 import type{Run}from'./types';
+import{wordsFromAlignment}from'./captions';
+import{sendAudio}from'./audio';
 
 type Source={title:string;course:string;lectureDate:string;transcript:string;notes:string;sources:{label:string;kind:string;url:string}[];warnings:string[]};
 const root=resolve('.data/demo');await mkdir(root,{recursive:true,mode:0o700});
@@ -77,7 +79,10 @@ async function pipeline(run:Run){const control=new AbortController();controllers
   if(!key)throw new Error('Speech generation is not configured. Your adapted transcript is saved.');
   const provider=createProviders({mode:'live',openaiApiKey:'',elevenLabsApiKey:key,voiceId:process.env.LECTURE_ACCESS_ELEVENLABS_VOICE_ID||'hpp4J3VqNfWAUOO0d1Us',voiceIsStock:true,timeoutMs:150000});
   const speech=await provider.synthesise(lesson.script,{revision:1,segmentId:'demo-lesson',signal});if(signal.aborted)return;
-  await writeFile(join(root,run.id,'lesson.wav'),speech.bytes,{mode:0o600});run.audio=true;run.duration=speech.durationMs/1000;for(const event of run.events)if(event.status==='running'&&event.stage!=='action'){event.status='done';event.finishedAt=new Date().toISOString();}run.status='ready';publish(run);
+  await writeFile(join(root,run.id,'lesson.wav'),speech.bytes,{mode:0o600});run.audio=true;run.duration=speech.durationMs/1000;
+  await writeFile(join(root,run.id,'alignment.json'),JSON.stringify(speech.alignment??null),{mode:0o600});
+  try{run.words=wordsFromAlignment(speech.alignment,run.duration);}catch{run.captionNotice='Synchronized text is unavailable for this recording. You can still read the full transcript.';}
+  for(const event of run.events)if(event.status==='running'&&event.stage!=='action'){event.status='done';event.finishedAt=new Date().toISOString();}run.status='ready';publish(run);
  }catch(e){if(signal.aborted){run.status='cancelled';}else{run.status='error';run.error=e instanceof Error?e.message:'The request could not complete.';for(const event of run.events)if(event.status==='running'&&event.stage!=='action'){event.status='error';event.finishedAt=new Date().toISOString();}}publish(run);}finally{controllers.delete(run.id);if(active===run.id)active=undefined;}
 }
 function json(res:ServerResponse,status:number,value:unknown){res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
@@ -96,7 +101,7 @@ const server=http.createServer(async(req,res)=>{try{
   }
   if(path==='/demo-api/stage/audio'&&req.method==='GET'){
    if(!prepared){json(res,503,{error:'The prepared narration is unavailable.'});return;}
-   res.writeHead(200,{'Content-Type':'audio/wav','Content-Length':prepared.audio.length,'Cache-Control':'private, max-age=86400'});res.end(prepared.audio);return;
+   sendAudio(req,res,prepared.audio,'private, max-age=86400');return;
   }
   if(path==='/demo-api/runs'&&req.method==='POST'){
       if(!req.headers['content-type']?.startsWith('application/json')){json(res,415,{error:'JSON required'});return;}
@@ -114,7 +119,7 @@ const server=http.createServer(async(req,res)=>{try{
   }
   if(match[2]==='cancel'&&req.method==='POST'){controllers.get(run.id)?.abort();run.status='cancelled';publish(run);json(res,200,{stopped:true});return;}
   if(match[2]==='audio'&&req.method==='GET'&&run.status==='ready'){
-   const bytes=await readFile(join(root,run.id,'lesson.wav'));res.writeHead(200,{'Content-Type':'audio/wav','Content-Length':bytes.length});res.end(bytes);return;
+   const bytes=await readFile(join(root,run.id,'lesson.wav'));sendAudio(req,res,bytes);return;
   }json(res,404,{error:'Not found.'});return;
  }
  if(req.method!=='GET'){json(res,405,{error:'Method not allowed'});return;}
