@@ -1,13 +1,13 @@
 # Earshot demo
 
-Start on a blank white screen with an inset black frame and a speech bubble at the bottom left. Press **Cmd+K** (Mac) or **Ctrl+K**, or click the bubble. It moves to the centre and reveals the request field.
+Start with your lecture history in a collapsible sidebar and the speech bubble at the bottom left inside the inset frame. Press **Cmd+K** (Mac) or **Ctrl+K**, or click the bubble. It moves to the centre and reveals the request field.
 
 Example: **Teach me the content from my latest microeconomics lecture**.
 
 There are two entry points:
 
 - **Live demo:** http://127.0.0.1:4320/ — accepts any lecture request and performs the actual retrieval and generation.
-- **Stage demo:** http://127.0.0.1:4320/stage — a fixed request replays the pinned real run's activity in **14 seconds**, then plays its prepared narration. It makes no live retrieval, model or speech API calls, has no one-hour expiry, and can be replayed repeatedly. Both start with the same blank screen and keyboard shortcut. There is no visible mode selector or mode label; open the required URL directly. The presenter should explain that the fast version uses a prepared real run.
+- **Stage demo:** http://127.0.0.1:4320/stage — any typed request replays the pinned real run's activity in **40 seconds**, then plays its prepared narration. It makes no live retrieval, model or speech API calls, has no one-hour expiry, and can be replayed repeatedly. Both retain the same keyboard shortcut. The deterministic history includes the completed economics lecture under its actual title; selecting it opens its saved player immediately. There is no visible mode selector or mode label; open the required URL directly. The two entry points retain separate histories and New chat links.
 
 The stage demo reads a private local snapshot rather than choosing the latest run at presentation time. Before presenting, pin a completed real lesson with `npm run demo:prepare -- <run-id>` (omit the ID to select the latest completed lesson), then restart the demo server. This copies its activity, adapted transcript and WAV into ignored `.data/demo-stage/` and checks their hashes at startup. The existing snapshot remains fixed until explicitly prepared again. Keep that directory on the presentation machine; it is not committed to Git. Missing or changed assets produce an explicit blocker and never trigger a live run.
 
@@ -38,8 +38,10 @@ The prior extension prototype and its separate verification are retained in this
 
 `npm run test:demo` checks the blank entry screen, keyboard flow, bubble placement and mobile layout without provider calls. `npm run test:demo -- --prepared` additionally plays an existing real prepared lesson and checks its transcript/activity; it does not generate another lesson. Install the task-local browser with `PLAYWRIGHT_BROWSERS_PATH=.cache/playwright npx playwright install chromium` if needed.
 
-`npm run test:demo -- --stage` measures the stage replay against the twenty-second limit, repeats it to check identical steps/results, plays the stored audio and checks that there are no live or external browser requests.
+`npm run test:demo -- --stage` measures the stage replay against its forty-second timeline, repeats it to check identical steps/results, plays the stored audio and checks that there are no live or external browser requests.
 
 The visual treatment uses self-hosted Instrument Serif, Geist and Geist Mono, the lavender/indigo Prism palette, white and tinted surfaces, gradient artwork and supplied status icons. The product remains **Earshot**, with the same layout, control positions, keyboard bindings and steady trace. The Prism reference contributes styling and artwork only.
 
 During preparation, the five milestone labels and row positions stay fixed. Their indicators advance at verified pipeline boundaries; rapidly changing tool descriptions and action counts are kept inside the detailed activity log.
+
+The microphone beside the request field records up to one minute. Stop recording to transcribe through ElevenLabs Scribe; the words appear in the editable request field for review before submitting. The API key stays on the local server. Microphone denial and transcription failures leave typing available. Voice input makes a real transcription request only when explicitly used, including on the deterministic site.

@@ -1,6 +1,6 @@
 import type {Run} from './types';
 
-export const STAGE_DURATION_MS=14_000;
+export const STAGE_DURATION_MS=40_000;
 export type PreparedStage={preparedAt:string;durationMs:number;run:Run;audioUrl:string};
 type ReplayEvent={start:number;end:number};
 
@@ -19,10 +19,11 @@ export function stageTimeline(run:Run):ReplayEvent[]{
  const speechAt=speech?Date.parse(speech.at):last;
  const sourceTimes=[...new Set([...starts,...ends].filter(time=>time<rewriteAt))].sort((a,b)=>a-b);
  const finish=Math.max(last,...ends);
+ const retrieveMs=STAGE_DURATION_MS*9/14,rewriteMs=STAGE_DURATION_MS*3/14,speechMs=STAGE_DURATION_MS*2/14;
  const offset=(time:number)=>{
-  if(time<rewriteAt)return sourceTimes.indexOf(time)/Math.max(1,sourceTimes.length)*9_000;
-  if(time<speechAt)return 9_000+(time-rewriteAt)/Math.max(1,speechAt-rewriteAt)*3_000;
-  return 12_000+(time-speechAt)/Math.max(1,finish-speechAt)*2_000;
+  if(time<rewriteAt)return sourceTimes.indexOf(time)/Math.max(1,sourceTimes.length)*retrieveMs;
+  if(time<speechAt)return retrieveMs+(time-rewriteAt)/Math.max(1,speechAt-rewriteAt)*rewriteMs;
+  return retrieveMs+rewriteMs+(time-speechAt)/Math.max(1,finish-speechAt)*speechMs;
  };
  return starts.map((start,index)=>({start:offset(start),end:offset(ends[index])}));
 }

@@ -11,6 +11,8 @@ import type{Run}from'./types';
 import{wordsFromAlignment}from'./captions';
 import{sendAudio}from'./audio';
 import{agentSessionId}from'./agent-session';
+import{chatHistory}from'./history';
+import{DictationError,MAX_DICTATION_BYTES,transcribeRequest}from'./dictation-api';
 
 type Source={title:string;course:string;lectureDate:string;transcript:string;notes:string;sources:{label:string;kind:string;url:string}[];warnings:string[]};
 const root=resolve('.data/demo');await mkdir(root,{recursive:true,mode:0o700});
@@ -97,6 +99,15 @@ const server=http.createServer(async(req,res)=>{try{
  if(path.startsWith('/demo-api/')){
   if(!req.headers.cookie?.split(';').some(x=>x.trim()==='lecture_demo='+cookie)){json(res,401,{error:'Refresh the demo to reconnect.'});return;}
   if(req.method==='POST'&&req.headers.origin!==origin){json(res,403,{error:'Use the local demo window.'});return;}
+  if(path==='/demo-api/history'&&req.method==='GET'){json(res,200,{chats:chatHistory(runs.values(),prepared?.stage.run,url.searchParams.get('mode')==='stage')});return;}
+  if(path==='/demo-api/dictate'&&req.method==='POST'){
+   try{
+    const parts:Buffer[]=[];let size=0;
+    for await(const chunk of req){const part=Buffer.from(chunk);size+=part.length;if(size>MAX_DICTATION_BYTES){json(res,413,{error:'Please keep your dictated request under one minute.'});return;}parts.push(part);}
+    const file=process.env.LECTURE_ACCESS_ELEVENLABS_KEY_FILE,key=process.env.LECTURE_ACCESS_ELEVENLABS_API_KEY||(file?(await readFile(file,'utf8')).trim():process.env.ELEVENLABS_API_KEY);
+    const text=await transcribeRequest(Buffer.concat(parts),String(req.headers['content-type']||''),key,fetch,AbortSignal.timeout(55000));json(res,200,{text});
+   }catch(error){json(res,error instanceof DictationError?error.status:502,{error:error instanceof DictationError?error.message:'Voice input could not connect. Please try again or type your request.'});}return;
+  }
   if(path==='/demo-api/stage'&&req.method==='GET'){
    if(!prepared){json(res,503,{error:'This lecture is unavailable on this machine. Please reconnect and try again.'});return;}
    json(res,200,{...prepared.stage,run:publicRun(prepared.stage.run)});return;

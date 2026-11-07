@@ -18,19 +18,19 @@ const directories:string[]=[];
 afterEach(async()=>{await Promise.all(directories.splice(0).map(directory=>rm(directory,{recursive:true,force:true})));});
 
 describe('prepared stage demo',()=>{
- it('replays parallel actions and failures on a repeatable timeline under twenty seconds',()=>{
+ it('replays parallel actions and failures on a repeatable forty-second timeline',()=>{
   const original=structuredClone(recorded),timeline=stageTimeline(recorded);
   expect(timeline).toEqual(stageTimeline(recorded));
   expect(timeline[1].start).toBe(timeline[2].start);
   expect(stageFrame(recorded,timeline,0).events).toHaveLength(1);
-  const middle=stageFrame(recorded,timeline,9_001);
+  const middle=stageFrame(recorded,timeline,STAGE_DURATION_MS*9/14+1);
   expect(middle.status).toBe('running');
   expect(middle.events.find(event=>event.id===3)?.status).toBe('error');
   expect(middle.events.find(event=>event.id===4)?.status).toBe('running');
   expect(middle.events.some(event=>event.id===5)).toBe(false);
-  expect(stageFrame(recorded,timeline,12_001).events.at(-1)?.status).toBe('running');
+  expect(stageFrame(recorded,timeline,STAGE_DURATION_MS*12/14+1).events.at(-1)?.status).toBe('running');
   expect(stageFrame(recorded,timeline,STAGE_DURATION_MS)).toEqual(recorded);
-  expect(STAGE_DURATION_MS).toBeLessThan(20_000);
+  expect(STAGE_DURATION_MS).toBe(40_000);
   expect(recorded).toEqual(original);
  });
 
@@ -49,7 +49,7 @@ describe('prepared stage demo',()=>{
   ]);
   const loaded=await loadPreparedStage(directory);
   expect(loaded.stage.run).toEqual(recorded);
-  expect(loaded.stage.durationMs).toBe(14_000);
+  expect(loaded.stage.durationMs).toBe(40_000);
   expect(loaded.audio).toEqual(audio);
   await writeFile(join(directory,'lesson.wav'),'changed');
   await expect(loadPreparedStage(directory)).rejects.toThrow('have changed');
