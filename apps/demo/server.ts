@@ -96,11 +96,11 @@ const server=http.createServer(async(req,res)=>{try{
   if(!req.headers.cookie?.split(';').some(x=>x.trim()==='lecture_demo='+cookie)){json(res,401,{error:'Refresh the demo to reconnect.'});return;}
   if(req.method==='POST'&&req.headers.origin!==origin){json(res,403,{error:'Use the local demo window.'});return;}
   if(path==='/demo-api/stage'&&req.method==='GET'){
-   if(!prepared){json(res,503,{error:'The stage demo is not prepared on this machine. A completed lecture and its audio are required.'});return;}
+   if(!prepared){json(res,503,{error:'This lecture is unavailable on this machine. Please reconnect and try again.'});return;}
    json(res,200,{...prepared.stage,run:publicRun(prepared.stage.run)});return;
   }
   if(path==='/demo-api/stage/audio'&&req.method==='GET'){
-   if(!prepared){json(res,503,{error:'The prepared narration is unavailable.'});return;}
+   if(!prepared){json(res,503,{error:'The narration is unavailable.'});return;}
    sendAudio(req,res,prepared.audio,'private, max-age=86400');return;
   }
   if(path==='/demo-api/runs'&&req.method==='POST'){

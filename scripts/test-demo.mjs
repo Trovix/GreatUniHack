@@ -30,14 +30,20 @@ try{
   const input=stage.getByRole('textbox',{name:'Your lecture request'});
   await input.waitFor();
   if(await input.getAttribute('readonly')===null)throw new Error('Stage request must be fixed.');
-  await stage.getByRole('button',{name:'Start stage demo',exact:true}).waitFor();
+  await stage.getByRole('button',{name:'Start learning',exact:true}).waitFor();
   await stage.waitForFunction(()=>document.querySelector('audio')?.readyState>=2);
   const started=Date.now();
-  await stage.getByRole('button',{name:'Start stage demo',exact:true}).click();
+  await stage.getByRole('button',{name:'Start learning',exact:true}).click();
   await stage.waitForFunction(()=>document.querySelectorAll('.activity li').length>=2);
+  if(await stage.locator('.phase-step').count()!==5)throw new Error('Preparation should show five readable steps.');
+  await assertFrame(stage);
+  await stage.locator('.experience').evaluate(async element=>{await Promise.all(element.getAnimations().map(animation=>animation.finished.catch(()=>{})));});
+  await stage.screenshot({path:'.tmp/earshot-preparation.png'});
+  await assertStableTrace(stage,started);
   if(await stage.getByRole('button',{name:'Play lecture',exact:true}).count())throw new Error('Replay skipped the recorded activity.');
   await stage.getByRole('button',{name:'Play lecture',exact:true}).waitFor({timeout:20_000});
   const elapsed=Date.now()-started;
+  await assertFrame(stage);
   if(elapsed>=20_000)throw new Error('Stage demo took more than twenty seconds.');
   const playBox=await stage.getByRole('button',{name:'Play lecture',exact:true}).boundingBox();
   if(!playBox||playBox.y+playBox.height>866)throw new Error('The stage player is below the presentation viewport.');
@@ -45,15 +51,19 @@ try{
   await stage.getByRole('button',{name:'Play lecture',exact:true}).click();
   await stage.waitForFunction(()=>document.querySelector('audio')?.currentTime>.25);
   await stage.getByRole('button',{name:'Pause lecture',exact:true}).click();
+  await stage.getByRole('button',{name:'Back to request',exact:true}).scrollIntoViewIfNeeded();
+  const footer=await stage.getByRole('button',{name:'Back to request',exact:true}).boundingBox();
+  const frame=await stage.locator('.frame').boundingBox();
+  if(!footer||!frame||footer.y+footer.height>frame.y+frame.height-12)throw new Error('The footer crosses the frame.');
   const pinned=JSON.parse(await readFile('.data/demo-stage/run.json','utf8'));
   await verifyCaptions(stage,pinned.words,'stage');
-  await stage.getByRole('button',{name:/Replay stage demo/}).click();
+  await stage.getByRole('button',{name:/Prepare again/}).click();
   await stage.getByRole('button',{name:'Play lecture',exact:true}).waitFor({timeout:20_000});
   const repeatedActions=await stage.locator('.activity li').evaluateAll(rows=>rows.map(row=>({text:row.textContent,status:row.className})));
   if(JSON.stringify(firstActions)!==JSON.stringify(repeatedActions))throw new Error('Stage replay changed between runs.');
   if(await stage.getByRole('button',{name:/Refresh from/}).count())throw new Error('Stage mode exposes live refresh.');
   if(forbidden.length)throw new Error('Stage demo made a live or external request: '+forbidden.join(', '));
-  await stage.evaluate(()=>window.scrollTo(0,0));
+  await stage.locator('.content-viewport').evaluate(element=>{element.scrollTop=0;});
   await stage.screenshot({path:'.tmp/demo-stage-ready.png',fullPage:true});
   console.log(`Passed: stage replay ready in ${(elapsed/1000).toFixed(2)}s, identical repeat, real audio playback, fixed request and no live/external requests.`);
   await stage.close();
@@ -74,18 +84,18 @@ try{
   await page.getByRole('button',{name:/Read transcript/}).click();
   if((await page.locator('.script').innerText()).length<300)throw new Error('Adapted transcript is missing.');
   await page.getByRole('button',{name:/Hide transcript/}).click();
-  if(!await page.getByRole('log',{name:'Lecture activity'}).isVisible())await page.locator('.completed-work summary').click();
+  await openFullTrace(page);
   await page.getByRole('log',{name:'Lecture activity'}).waitFor({state:'visible'});
   if(await page.locator('.activity li').count()<5)throw new Error('Agent activity is missing.');
   const sourceActions=prepared.events.filter(event=>event.stage==='action');
-  if(sourceActions.length&&await page.locator('.activity-context time').count()!==prepared.events.length)throw new Error('Some action timestamps were omitted.');
+  if(sourceActions.length&&await page.locator('.activity-line time').count()!==prepared.events.length)throw new Error('Some action timestamps were omitted.');
   if(/\b(?:aside|claude|elevenlabs|openai|codex|echo360|panopto)\b/i.test(await page.locator('.work').innerText()))throw new Error('Internal vendor names appear in the demo.');
   const logos=page.locator('.activity img[alt="Moodle"]');
   if(!await logos.count())throw new Error('Inline Moodle logos are missing.');
   if(!await logos.evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0)))throw new Error('A Moodle logo failed to load.');
   if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error('Prepared lesson overflows on mobile.');
   await page.setViewportSize({width:1440,height:1000});
-  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.locator('.content-viewport').evaluate(element=>{element.scrollTop=0;});
   await page.screenshot({path:'.tmp/demo-activity-desktop.png',fullPage:true});
   await page.locator('.activity').evaluate(list=>{list.scrollTop=0;});
   await page.screenshot({path:'.tmp/demo-activity-start.png',fullPage:true});
@@ -129,6 +139,7 @@ async function verifyCaptions(page,words,mode){
  await page.evaluate(()=>document.querySelector('audio').pause());
  await seek(35);
  await page.setViewportSize({width:390,height:844});
+ await assertFrame(page);
  await page.waitForFunction(()=>Array.from(document.querySelectorAll('.narration-line')).every(line=>line.scrollWidth<=line.clientWidth+2));
   await page.locator('.narration').evaluate(async reader=>{await Promise.all(reader.getAnimations({subtree:true}).map(animation=>animation.finished.catch(()=>{})));});
   await page.locator('.narration').evaluate(reader=>reader.scrollIntoView({block:'center'}));
@@ -140,4 +151,30 @@ async function verifyCaptions(page,words,mode){
  await page.evaluate(()=>{const audio=document.querySelector('audio');audio.currentTime=0;audio.playbackRate=1;});
  await page.waitForFunction(()=>document.querySelectorAll('.narration-word.is-spoken').length===0);
  console.log('Passed: '+mode+' word synchronization, two grey preview lines, pause, backward/forward seek, 2× speed, mobile reader and reduced motion.');
+}
+
+async function openFullTrace(page){
+ if(!await page.locator('.trace-overview').isVisible())await page.locator('.trace-summary').click();
+ if(!await page.getByRole('log',{name:'Lecture activity'}).isVisible())await page.locator('.trace-details>summary').click();
+}
+
+async function assertFrame(page){
+ const geometry=await page.evaluate(()=>{const frame=document.querySelector('.frame').getBoundingClientRect(),viewport=document.querySelector('.content-viewport').getBoundingClientRect();return{frame:{top:frame.top,bottom:frame.bottom,left:frame.left,right:frame.right},viewport:{top:viewport.top,bottom:viewport.bottom,left:viewport.left,right:viewport.right},pageHeight:document.documentElement.scrollHeight,height:innerHeight,text:document.body.innerText,title:document.title};});
+ if(geometry.viewport.bottom>geometry.frame.bottom-10||geometry.viewport.top<geometry.frame.top||geometry.viewport.left<geometry.frame.left||geometry.viewport.right>geometry.frame.right)throw new Error('Content is not contained inside the frame.');
+ if(geometry.pageHeight>geometry.height+1)throw new Error('The document scrolls behind the fixed frame.');
+ if(/\b(stage demo|live demo|prepared run|replay of recorded)\b/i.test(geometry.text))throw new Error('A demo mode is visible in the product UI.');
+ if(geometry.title!=='Earshot')throw new Error('The product name changed.');
+}
+
+async function assertStableTrace(page,started){
+ let baseline;const headings=new Set();let samples=0;
+ while(Date.now()-started<13_000){
+  const sample=await page.evaluate(()=>({rows:Array.from(document.querySelectorAll('.phase-step p'),element=>{const text=element.cloneNode(true);text.querySelectorAll('.sr-only').forEach(node=>node.remove());const rect=element.getBoundingClientRect();return{text:text.textContent,y:Math.round(rect.y),height:Math.round(rect.height)};}),heading:document.querySelector('.work-heading p')?.textContent}));
+  if(!baseline)baseline=sample.rows;
+  if(JSON.stringify(sample.rows)!==JSON.stringify(baseline))throw new Error('The visible preparation text or row positions changed during the run.');
+  headings.add(sample.heading);samples++;
+  await page.waitForTimeout(150);
+ }
+ if(headings.size>4)throw new Error('The preparation heading changes too frequently.');
+ console.log(`Passed: stable milestone text and positions across ${samples} replay frames.`);
 }

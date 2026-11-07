@@ -33,8 +33,9 @@ export function Narration({words,audio,playing}:{words:TimedWord[];audio:RefObje
   if(!playing)return;let second=0;
   const first=requestAnimationFrame(()=>{second=requestAnimationFrame(()=>{
    const element=readerWindow.current;if(!element)return;
-   const overflow=element.getBoundingClientRect().bottom-(window.innerHeight-64);
-   if(overflow>0)window.scrollBy({top:overflow,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+   const viewport=element.closest<HTMLElement>('.content-viewport');
+   const overflow=element.getBoundingClientRect().bottom-((viewport?.getBoundingClientRect().bottom??window.innerHeight)-24);
+   if(overflow>0)(viewport??window).scrollBy({top:overflow,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
   });});
   return()=>{cancelAnimationFrame(first);cancelAnimationFrame(second);};
  },[playing,metrics.width]);
