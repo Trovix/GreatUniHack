@@ -40,6 +40,6 @@ The prior extension prototype and its separate verification are retained in this
 
 `npm run test:demo -- --stage` measures the stage replay against the twenty-second limit, repeats it to check identical steps/results, plays the stored audio and checks that there are no live or external browser requests.
 
-The visual treatment uses self-hosted Instrument Serif, Inter and DM Mono, a monochrome palette, fine rules and rounded corners inspired by the supplied asset pack. The product remains **Earshot**; the reference’s screen layout, keyboard bindings and branding are not adopted.
+The visual treatment uses self-hosted Instrument Serif, Geist and Geist Mono, the lavender/indigo Prism palette, white and tinted surfaces, gradient artwork and supplied status icons. The product remains **Earshot**, with the same layout, control positions, keyboard bindings and steady trace. The Prism reference contributes styling and artwork only.
 
 During preparation, the five milestone labels and row positions stay fixed. Their indicators advance at verified pipeline boundaries; rapidly changing tool descriptions and action counts are kept inside the detailed activity log.

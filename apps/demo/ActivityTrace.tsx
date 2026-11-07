@@ -4,7 +4,8 @@ import {tracePhases} from './trace';
 import {ProductText} from './ProductText';
 
 function Mark({status}:{status:string}){
- return <span className={`activity-mark mark-${status}`} aria-hidden="true">{status==='done'?<svg viewBox="0 0 16 16"><path d="m3 8 3 3 7-7"/></svg>:status==='error'?'!':<span/>}</span>;
+ const asset=status==='done'?'step-done':status==='running'?'step-in-progress':'step-pending';
+ return <span className={`activity-mark mark-${status}`} aria-hidden="true">{status==='error'?'!':<img src={'/prism/'+asset+'.svg'} alt=""/>}</span>;
 }
 
 export function Trace({run,open,onToggle}:{run:Run;open:boolean;onToggle:(open:boolean)=>void}){

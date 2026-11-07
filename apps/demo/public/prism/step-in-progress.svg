@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+<style>@keyframes s{to{transform:rotate(360deg)}}.sp{transform-origin:8px 8px;animation:s .9s linear infinite}@media (prefers-reduced-motion:reduce){.sp{animation:none}}</style><defs><linearGradient id="pr-sp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A5BFF"/><stop offset="1" stop-color="#A99BFF"/></linearGradient></defs><circle cx="8" cy="8" r="6" fill="none" stroke="#E6E6F8" stroke-width="2"/><path class="sp" d="M8 2a6 6 0 0 1 6 6" fill="none" stroke="url(#pr-sp)" stroke-width="2" stroke-linecap="round"/>
+</svg>

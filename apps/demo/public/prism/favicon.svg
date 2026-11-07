@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+<defs><linearGradient id="pr-mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A5BFF"/><stop offset="1" stop-color="#A99BFF"/></linearGradient></defs>
+<path d="M9 52 V9 H91 V91 H48" fill="none" stroke="#2E2F7A" stroke-width="13"/>
+<circle cx="24" cy="76" r="22" fill="url(#pr-mk)"/>
+</svg>

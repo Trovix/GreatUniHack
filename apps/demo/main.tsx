@@ -3,6 +3,7 @@ import{createRoot}from'react-dom/client';
 import './style.css';
 import {ProductText} from './ProductText';
 import {Narration} from './Narration';
+import {OrbArt} from './OrbArt';
 import {Trace} from './ActivityTrace';
 import {preparationTitle} from './trace';
 import type {Run} from './types';
@@ -36,7 +37,7 @@ function App(){
  return <main className={`canvas ${open?'is-open':''} ${run?'has-run':''} ${ready?'is-ready':''} ${stageMode?'is-stage':''}`}>
   <div className="frame" aria-hidden="true"/>
   <button className={`orb ${active?'is-active':''}`} aria-label={open?'Focus your lecture request':'Open lecture request. Command or Control K'} aria-keyshortcuts="Meta+K Control+K" onClick={()=>{setOpen(true);input.current?.focus();}}>
-   <svg viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="orb-clip"><circle cx="60" cy="60" r="48"/></clipPath></defs><g clipPath="url(#orb-clip)"><path className="back" d="M-60 60 Q-45 47 -30 60 T0 60 T30 60 T60 60 T90 60 T120 60 T150 60 T180 60"/><path className="middle" d="M-50 60 Q-37 73 -25 60 T0 60 T25 60 T50 60 T75 60 T100 60 T125 60 T150 60"/><path className="front" d="M-40 60 Q-30 40 -20 60 T0 60 T20 60 T40 60 T60 60 T80 60 T100 60 T120 60 T140 60 T160 60"/></g></svg>
+   <OrbArt/>
   </button>
   {(stageMode&&prepared||!stageMode&&ready)&&<audio ref={audio} src={stageMode?prepared?.audioUrl:'/demo-api/runs/'+run?.id+'/audio'} preload={stageMode?'auto':'metadata'} onPlay={()=>{setPlaying(true);setActivityOpen(false);}} onPause={()=>setPlaying(false)} onTimeUpdate={e=>setTime(e.currentTarget.currentTime)} onLoadedMetadata={e=>setDuration(e.currentTarget.duration)} onEnded={()=>setPlaying(false)}/>}
   <div className="content-viewport">
@@ -53,7 +54,7 @@ function App(){
     <Trace run={run} open={busy||activityOpen} onToggle={value=>{if(!busy)setActivityOpen(value);}}/>
     {run.error&&<div className="error" role="alert"><ProductText>{run.error}</ProductText><p>Your retrieved materials remain saved.</p></div>}
     {ready&&<article className="lesson"><div className="lesson-meta"><span>EARSHOT · YOUR LECTURE, RE-EXPLAINED</span><span>Narrated lesson</span></div><h1>{run.title}</h1><p className="course">{[run.course?.replace(/\s*\([^)]*Moodle[^)]*\)/i,''),run.date?.match(/\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)(?:day)?[,\s]+\d{1,2}\s+\w+\s+\d{4}\b/)?.[0]||run.date?.slice(0,60)].filter(Boolean).join(' · ')}</p>{run.scope&&<p className="scope" title={run.scope}>{run.scope.split('. ')[0]}</p>}
-     <div className="player"><button className="play" aria-label={playing?'Pause lecture':'Play lecture'} onClick={()=>{if(audio.current){if(playing)audio.current.pause();else void audio.current.play().catch(()=>setError('Press Play again to allow audio.'));}}}>{playing?<svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg>:<svg viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></svg>}</button><div className="seek"><input aria-label="Lecture playback position" type="range" min="0" max={duration||1} step="0.1" value={time} onChange={e=>{if(audio.current)audio.current.currentTime=Number(e.target.value);}}/><div><span>{minutes(time)}</span><span>{minutes(duration)}</span></div></div><select aria-label="Playback speed" defaultValue="1" onChange={e=>{if(audio.current)audio.current.playbackRate=Number(e.target.value);}}>{[.75,1,1.25,1.5,2].map(v=><option key={v} value={v}>{v}×</option>)}</select></div>
+     <div className="player"><button className="play" aria-label={playing?'Pause lecture':'Play lecture'} onClick={()=>{if(audio.current){if(playing)audio.current.pause();else void audio.current.play().catch(()=>setError('Press Play again to allow audio.'));}}}>{playing?<svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg>:<img src="/prism/play.svg" alt="" aria-hidden="true"/>}</button><div className="seek"><input aria-label="Lecture playback position" type="range" min="0" max={duration||1} step="0.1" value={time} onChange={e=>{if(audio.current)audio.current.currentTime=Number(e.target.value);}}/><div><span>{minutes(time)}</span><span>{minutes(duration)}</span></div></div><select aria-label="Playback speed" defaultValue="1" onChange={e=>{if(audio.current)audio.current.playbackRate=Number(e.target.value);}}>{[.75,1,1.25,1.5,2].map(v=><option key={v} value={v}>{v}×</option>)}</select></div>
      {run.words?.length?<Narration words={run.words} audio={audio} playing={playing}/>:<p className="caption-notice">{run.captionNotice||'Synchronized text is unavailable for this recording. Read the full transcript below.'}</p>}
      <div className="lesson-links"><button className="quiet" onClick={()=>setShowScript(!showScript)}>{showScript?'Hide transcript':'Read transcript'} <span>↗</span></button><a href={stageMode?prepared?.audioUrl:'/demo-api/runs/'+run.id+'/audio'} download="lecture.wav">Save audio <span>↓</span></a></div>
      {showScript&&<div className="script">{run.script?.split('\n\n').map((p,i)=><p key={i}>{p}</p>)}</div>}
