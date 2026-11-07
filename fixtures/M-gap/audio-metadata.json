@@ -1,0 +1,74 @@
+{
+  "synthetic": true,
+  "role": "original lecture source A, not adapted output B",
+  "engine": "macOS offline say",
+  "voice": "Daniel",
+  "sampleRate": 24000,
+  "channels": 1,
+  "bitsPerSample": 16,
+  "durationMs": 60000,
+  "sha256": "03d866188df6c0485f153fca7808774259e6ee13c15dd5a4537c6d7bb0987385",
+  "assembly": "Each exact caption spoken separately; ffmpeg apad to 240000 samples; concatenate complete PCM slots. No words cut.",
+  "cues": [
+    {
+      "id": "C1",
+      "startMs": 0,
+      "endMs": 10000,
+      "text": "We start where these two lines cross. That is our initial equilibrium.",
+      "rate": 185,
+      "spokenDurationMs": 4484.166666666667,
+      "slotDurationMs": 10000,
+      "spokenSha256": "53c2aa8b5ad63878cadcea9892956f34884e1dc707ee8af49e4bb2992ee74121"
+    },
+    {
+      "id": "C2",
+      "startMs": 10000,
+      "endMs": 20000,
+      "text": "Now demand increases. It moves from the blue line to the purple line, while supply stays put.",
+      "rate": 185,
+      "spokenDurationMs": 5645.791666666667,
+      "slotDurationMs": 10000,
+      "spokenSha256": "3109f5212bb2aad99c538f56c9cd4e7292cd9db6fa4af8ab12d04c4466eeddd2"
+    },
+    {
+      "id": "C3",
+      "startMs": 20000,
+      "endMs": 30000,
+      "text": "The new equilibrium is here. Both of these values are higher than before.",
+      "rate": 185,
+      "spokenDurationMs": 4214.833333333333,
+      "slotDurationMs": 10000,
+      "spokenSha256": "6495cdf31433ed54f369aacc26567e8d9854bc03f82e7e78b3e674310fa70ce8"
+    },
+    {
+      "id": "C4",
+      "startMs": 30000,
+      "endMs": 40000,
+      "text": "This is a shift of demand, not a movement along the original demand curve.",
+      "rate": 185,
+      "spokenDurationMs": 4328.875,
+      "slotDurationMs": 10000,
+      "spokenSha256": "42de6c54e7afa4f53082ec789df523f30cc26a961762ee167236969e97e6e9a2"
+    },
+    {
+      "id": "C5",
+      "startMs": 40000,
+      "endMs": 50000,
+      "text": "In the highlighted version, this whole top part is divided by this bottom part. The brackets are important.",
+      "rate": 185,
+      "spokenDurationMs": 6214.916666666666,
+      "slotDurationMs": 10000,
+      "spokenSha256": "8b0776fb59f32a822473bcc1413877e19ee3f1ca9e603a2712c6da955f32008b"
+    },
+    {
+      "id": "C6",
+      "startMs": 50000,
+      "endMs": 60000,
+      "text": "Returning to our original picture, this is the starting point again.",
+      "rate": 185,
+      "spokenDurationMs": 3904.166666666667,
+      "slotDurationMs": 10000,
+      "spokenSha256": "f3a2eaf8bfc24fc4a3aa134b1dac5a035eeab3e64d1359e0d5e298a817181c2d"
+    }
+  ]
+}

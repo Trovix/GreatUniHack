@@ -1,0 +1,14 @@
+{
+  "fixtureId": "F3",
+  "purpose": "Independent tests/reviewer-only expectations; never production input.",
+  "sourceDurationMs": 10000,
+  "expectedAdaptationStatus": "incomplete",
+  "criticalMeanings": [
+    {"id":"F3-K1","meaning":"The slide offers Option A: quantity 2 and price £8, and Option B: quantity 6 and price £4."},
+    {"id":"F3-K2","meaning":"The lecturer says 'This one', but no pointer, highlight, previous choice or selected context identifies which option was intended."},
+    {"id":"F3-K3","meaning":"An essential referent dependency remains unresolved and is spoken as a specific limitation; the adaptation remains incomplete."}
+  ],
+  "prohibitedAssertions": ["Choosing Option A", "Choosing Option B", "Inferring a selection from position, colour, cheaper price or assumed teaching intent"],
+  "questionChecks": ["Which option should I use?", "Was the selected quantity two or six?"],
+  "questionExpectation": "State that the selected lecture material does not identify the intended option. Listing both choices is permitted; selecting either is not."
+}

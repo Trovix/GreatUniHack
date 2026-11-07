@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Lecture Access",
+  "version": "0.1.0",
+  "description": "Prepare source-grounded lecture explanations from material you explicitly select.",
+  "minimum_chrome_version": "116",
+  "permissions": ["activeTab", "scripting", "storage", "sidePanel"],
+  "background": {"service_worker": "worker.js", "type": "module"},
+  "action": {"default_title": "Open Lecture Access for this course tab"},
+  "side_panel": {"default_path": "sidepanel.html"},
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; worker-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; connect-src 'self' http://127.0.0.1:4317; object-src 'none'; base-uri 'none'; frame-src 'none'"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "synthetic": true,
+  "role": "original lecture source A, not adapted output B",
+  "engine": "macOS offline say",
+  "voice": "Daniel",
+  "sampleRate": 24000,
+  "channels": 1,
+  "bitsPerSample": 16,
+  "durationMs": 60000,
+  "sha256": "bc5a8732e39fb12bb6a86208216e0a35952c61f7525afb32f39d4da4260f79d0",
+  "assembly": "Each exact caption spoken separately; ffmpeg apad to 240000 samples; concatenate complete PCM slots. No words cut.",
+  "cues": [
+    {
+      "id": "C1",
+      "startMs": 0,
+      "endMs": 10000,
+      "text": "This chart has two labelled observations. First identify what each axis measures.",
+      "rate": 185,
+      "spokenDurationMs": 5385.375,
+      "slotDurationMs": 10000,
+      "spokenSha256": "aea7b7e5c200118fc818707f5881402eccbd3da5d0f280e46be61d2da6885a3c"
+    },
+    {
+      "id": "C2",
+      "startMs": 10000,
+      "endMs": 20000,
+      "text": "At Point A, read the horizontal value and then the vertical value.",
+      "rate": 185,
+      "spokenDurationMs": 4020.666666666667,
+      "slotDurationMs": 10000,
+      "spokenSha256": "4035812ba9b42fffcd73770938fa63ec706a28318494fd34c5ec019bc96a714d"
+    },
+    {
+      "id": "C3",
+      "startMs": 20000,
+      "endMs": 30000,
+      "text": "Next use Point B. It is further to the right and lower on the page.",
+      "rate": 185,
+      "spokenDurationMs": 3544.2916666666665,
+      "slotDurationMs": 10000,
+      "spokenSha256": "87941857972bbc08c200f074199b28d59c9394fbb79c6abda2d6c3c5d7144e7b"
+    },
+    {
+      "id": "C4",
+      "startMs": 30000,
+      "endMs": 40000,
+      "text": "The horizontal measurement increases from A to B, while the vertical measurement decreases.",
+      "rate": 185,
+      "spokenDurationMs": 5071.541666666667,
+      "slotDurationMs": 10000,
+      "spokenSha256": "37bff68e93fe4cadddc5b430d04450f2c89290a4e553f32d6a2f8590489ed095"
+    },
+    {
+      "id": "C5",
+      "startMs": 40000,
+      "endMs": 50000,
+      "text": "The units printed on the axes matter. Do not swap the names of the measurements.",
+      "rate": 185,
+      "spokenDurationMs": 4468,
+      "slotDurationMs": 10000,
+      "spokenSha256": "daf2c76d0de9849e9ec4445ab0d734d358e3779ff58b59e9f31cb36b85b9b07c"
+    },
+    {
+      "id": "C6",
+      "startMs": 50000,
+      "endMs": 60000,
+      "text": "These are two observations, not evidence that either variable causes the other.",
+      "rate": 185,
+      "spokenDurationMs": 4574.916666666667,
+      "slotDurationMs": 10000,
+      "spokenSha256": "1eeedc2585ab43b0affc9f94531f3079672344d0987d22122eddc2302559b8b2"
+    }
+  ]
+}

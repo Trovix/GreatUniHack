@@ -1,0 +1,157 @@
+{
+  "fixtures": [
+    {
+      "fixtureId": "F1",
+      "inputRevision": 1,
+      "liveModelOutput": "not_generated",
+      "criticalMeaningVerdict": "blocked_no_live_transformation",
+      "reviewerRole": "developer source/artifact inspection; not a listening participant or target user",
+      "criticalItems": [
+        {
+          "id": "K1",
+          "meaning": "Horizontal quantity units; vertical price in pounds per unit, before equilibrium values.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K2",
+          "meaning": "Upward supply and downward initial demand identified.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K3",
+          "meaning": "Initial equilibrium quantity 5 and price £5.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K4",
+          "meaning": "Demand changes from D0 to D1, above/right in this diagram.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K5",
+          "meaning": "Supply stays fixed.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K6",
+          "meaning": "More buyers; other determinants unchanged.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K7",
+          "meaning": "New intersection quantity 7 and price £7.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K8",
+          "meaning": "Both equilibrium values rise.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K9",
+          "meaning": "Demand shift distinguished from movement on the original curve.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K10",
+          "meaning": "Sum a+b divided by the entire difference c−d.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K11",
+          "meaning": "Nonzero denominator; c≠d.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        },
+        {
+          "id": "K12",
+          "meaning": "Return to original diagram is a reference, not a market reversal.",
+          "liveOutputVerdict": "not_assessed",
+          "referenceTextPresent": true
+        }
+      ],
+      "wrongClaims": null,
+      "omittedClaims": null,
+      "unsupportedClaims": null,
+      "measurementNote": "Null means not measured on a live output, not zero errors. Offline mock output cannot satisfy semantic acceptance.",
+      "humanAudioListening": "not_performed",
+      "sourceEvidence": "See verification/offline/F1/report.json for hashes, ledger and mock script."
+    },
+    {
+      "fixtureId": "F2",
+      "inputRevision": 1,
+      "liveModelOutput": "not_generated",
+      "criticalMeaningVerdict": "blocked_no_live_transformation",
+      "reviewerRole": "developer source/artifact inspection; not a listening participant or target user",
+      "criticalItems": [],
+      "wrongClaims": null,
+      "omittedClaims": null,
+      "unsupportedClaims": null,
+      "measurementNote": "Null means not measured on a live output, not zero errors. Offline mock output cannot satisfy semantic acceptance.",
+      "humanAudioListening": "not_performed",
+      "sourceEvidence": "See verification/offline/F2/report.json for hashes, ledger and mock script."
+    },
+    {
+      "fixtureId": "F3",
+      "inputRevision": 1,
+      "liveModelOutput": "not_generated",
+      "criticalMeaningVerdict": "blocked_no_live_transformation",
+      "reviewerRole": "developer source/artifact inspection; not a listening participant or target user",
+      "criticalItems": [],
+      "wrongClaims": null,
+      "omittedClaims": null,
+      "unsupportedClaims": null,
+      "measurementNote": "Null means not measured on a live output, not zero errors. Offline mock output cannot satisfy semantic acceptance.",
+      "humanAudioListening": "not_performed",
+      "sourceEvidence": "See verification/offline/F3/report.json for hashes, ledger and mock script."
+    },
+    {
+      "fixtureId": "F4a",
+      "inputRevision": 1,
+      "liveModelOutput": "not_generated",
+      "criticalMeaningVerdict": "blocked_no_live_transformation",
+      "reviewerRole": "developer source/artifact inspection; not a listening participant or target user",
+      "criticalItems": [],
+      "wrongClaims": null,
+      "omittedClaims": null,
+      "unsupportedClaims": null,
+      "measurementNote": "Null means not measured on a live output, not zero errors. Offline mock output cannot satisfy semantic acceptance.",
+      "humanAudioListening": "not_performed",
+      "sourceEvidence": "See verification/offline/F4a/report.json for hashes, ledger and mock script."
+    },
+    {
+      "fixtureId": "F4b",
+      "inputRevision": 1,
+      "liveModelOutput": "not_generated",
+      "criticalMeaningVerdict": "blocked_no_live_transformation",
+      "reviewerRole": "developer source/artifact inspection; not a listening participant or target user",
+      "criticalItems": [],
+      "wrongClaims": null,
+      "omittedClaims": null,
+      "unsupportedClaims": null,
+      "measurementNote": "Null means not measured on a live output, not zero errors. Offline mock output cannot satisfy semantic acceptance.",
+      "humanAudioListening": "not_performed",
+      "sourceEvidence": "See verification/offline/F4b/report.json for hashes, ledger and mock script."
+    }
+  ],
+  "audioOnlyQuestionsFromSpec": [
+    "What do the horizontal and vertical axes measure, including units?",
+    "What are the initial and new equilibrium pairs?",
+    "Which curve changes and which stays fixed?",
+    "What source condition prompts the change?",
+    "Why a demand shift rather than movement along the original curve?",
+    "What is the grouped equation and its restriction?",
+    "Does revisiting the original slide prove another market change?"
+  ],
+  "comprehensionTestConducted": false
+}

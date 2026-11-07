@@ -1,0 +1,74 @@
+{
+  "synthetic": true,
+  "role": "original lecture source A, not adapted output B",
+  "engine": "macOS offline say",
+  "voice": "Daniel",
+  "sampleRate": 24000,
+  "channels": 1,
+  "bitsPerSample": 16,
+  "durationMs": 60000,
+  "sha256": "a5af99f34f82ea355c22f356a97479c6963f0381797589351ef4b9b2eee6faf7",
+  "assembly": "Each exact caption spoken separately; ffmpeg apad to 240000 samples; concatenate complete PCM slots. No words cut.",
+  "cues": [
+    {
+      "id": "C1",
+      "startMs": 0,
+      "endMs": 10000,
+      "text": "Quantity in units is horizontal; price in pounds per unit is vertical. Rising supply and falling initial demand meet at quantity five, price five pounds.",
+      "rate": 185,
+      "spokenDurationMs": 9791.5,
+      "slotDurationMs": 10000,
+      "spokenSha256": "bec6f89a6a1a52673e3285b6d528277c82d1ae569f23c1fdec5f011b853f93aa"
+    },
+    {
+      "id": "C2",
+      "startMs": 10000,
+      "endMs": 20000,
+      "text": "More buyers shift demand from D zero to D one, with other demand determinants unchanged. Supply stays fixed; new demand lies above the old curve.",
+      "rate": 185,
+      "spokenDurationMs": 9256.125,
+      "slotDurationMs": 10000,
+      "spokenSha256": "9da2d6d10a5d27f1b8d66de61960c5a74b9b55d9a289906755d5b82fb6141e02"
+    },
+    {
+      "id": "C3",
+      "startMs": 20000,
+      "endMs": 30000,
+      "text": "Unchanged supply and new demand meet at E one: quantity seven and price seven pounds. Both values exceed the initial quantity five and price five pounds.",
+      "rate": 185,
+      "spokenDurationMs": 9802.416666666666,
+      "slotDurationMs": 10000,
+      "spokenSha256": "258570d95a76414d71deb48c9fef0b307dcc2abf1c86926d8c351f126c66e8ff"
+    },
+    {
+      "id": "C4",
+      "startMs": 30000,
+      "endMs": 40000,
+      "text": "This changes the demand curve itself: it is a shift of demand, not a movement along the original demand curve.",
+      "rate": 185,
+      "spokenDurationMs": 6674.083333333333,
+      "slotDurationMs": 10000,
+      "spokenSha256": "9a21dc3700b86dec6a391fe0eea27341733b021fb17193cb95543e4cf9e2607b"
+    },
+    {
+      "id": "C5",
+      "startMs": 40000,
+      "endMs": 50000,
+      "text": "R equals the sum of A and B, all divided by the whole quantity C minus D. C must not equal D; the denominator cannot be zero.",
+      "rate": 185,
+      "spokenDurationMs": 8134.25,
+      "slotDurationMs": 10000,
+      "spokenSha256": "a74b6ed5cfd64a2cb8d9c6472e68ac8c7161ea69755c05dbd72b9e425223d637"
+    },
+    {
+      "id": "C6",
+      "startMs": 50000,
+      "endMs": 60000,
+      "text": "The original diagram reappears, showing E zero at quantity five and price five pounds again. Reopening it does not mean the market changed back.",
+      "rate": 185,
+      "spokenDurationMs": 8856.875,
+      "slotDurationMs": 10000,
+      "spokenSha256": "b3985915f9e2580623cf00afc8f3fad62f27b65b1ba7a3b79c86a6601e61d2d9"
+    }
+  ]
+}

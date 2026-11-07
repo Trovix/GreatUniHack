@@ -1,0 +1,15 @@
+{
+  "fixtureId": "F4a",
+  "purpose": "Independent tests/reviewer-only expectations; never production input.",
+  "sourceDurationMs": 60000,
+  "expectedAdaptationStatus": "conflict/incomplete",
+  "criticalMeanings": [
+    {"id":"F4a-K1","meaning":"C3 explicitly says the price falls while quantity rises."},
+    {"id":"F4a-K2","meaning":"The unchanged visual explicitly prints initial E0 quantity 5, price £5 and new E1 quantity 7, price £7, implying price rises."},
+    {"id":"F4a-K3","meaning":"Expose both the spoken claim and conflicting visible claim, rather than silently replacing either. The relevant segment remains conflicted/incomplete."},
+    {"id":"F4a-K4","meaning":"Other supported F1 content can be retained, but does not eliminate this source contradiction."}
+  ],
+  "prohibitedAssertions": ["Silently correcting 'falls' to 'rises'", "Claiming the chart shows a price decrease", "Changing visible source values to agree with the audio", "Calling the disputed conclusion supported"],
+  "questionChecks": ["Did the equilibrium price rise or fall?"],
+  "questionExpectation": "Explain that the lecturer says it falls while the chart's £5 to £7 labels show a rise, and that the selected sources conflict."
+}

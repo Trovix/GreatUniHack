@@ -1,0 +1,15 @@
+{
+  "fixtureId": "F4b",
+  "purpose": "Independent tests/reviewer-only expectations; never production input.",
+  "sourceDurationMs": 60000,
+  "expectedAdaptationStatus": "incomplete",
+  "criticalMeanings": [
+    {"id":"F4b-K1","meaning":"C5 only identifies a top part, bottom part and important brackets; it does not supply readable variables, signs or grouping."},
+    {"id":"F4b-K2","meaning":"V4's mathematical content, including any restriction, is illegible and has no recoverable PDF text layer."},
+    {"id":"F4b-K3","meaning":"The essential equation meaning remains unresolved; narrate the specific illegibility limitation rather than guessing."},
+    {"id":"F4b-K4","meaning":"The other supported chart content can be retained, but cannot make the full adaptation complete."}
+  ],
+  "prohibitedAssertions": ["Recovering the known F1 equation from fixture memory", "Asserting a+b or c-d from the unreadable source", "Stating c is not equal to d as a visible fact", "A numerical r", "Calling the formula segment supported"],
+  "questionChecks": ["What exactly is the formula?", "Is there a denominator restriction?"],
+  "questionExpectation": "The selected readable source does not establish the exact expression or restriction; the mathematical slide is illegible."
+}

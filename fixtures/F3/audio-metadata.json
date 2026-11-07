@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "role": "original lecture source A, not adapted output B",
+  "engine": "macOS offline say",
+  "voice": "Daniel",
+  "sampleRate": 24000,
+  "channels": 1,
+  "bitsPerSample": 16,
+  "durationMs": 10000,
+  "sha256": "28aabdd00a5ebe7264d0a0ca04e28931cfcdd4afe3b898d74906304887062c8b",
+  "assembly": "Each exact caption spoken separately; ffmpeg apad to 240000 samples; concatenate complete PCM slots. No words cut.",
+  "cues": [
+    {
+      "id": "C1",
+      "startMs": 0,
+      "endMs": 10000,
+      "text": "This one is the option I want you to use. Read off its two values.",
+      "rate": 185,
+      "spokenDurationMs": 4098.791666666667,
+      "slotDurationMs": 10000,
+      "spokenSha256": "08373c69a0ccab518ebfd9f9da443013e799061943f0930f85984abd4f7a35d7"
+    }
+  ]
+}

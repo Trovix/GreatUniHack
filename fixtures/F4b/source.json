@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "id": "F4b",
+  "title": "Demand, supply and grouped algebra — synthetic lecture",
+  "durationMs": 60000,
+  "audio": {
+    "assetId": "A",
+    "file": "source.wav",
+    "mime": "audio/wav"
+  },
+  "transcript": {
+    "assetId": "T",
+    "file": "captions.vtt",
+    "mime": "text/vtt"
+  },
+  "visuals": [
+    {
+      "stateId": "V1",
+      "file": "V1.png",
+      "build": "slide 1 build A",
+      "assetId": "IMG_V1",
+      "mime": "image/png",
+      "width": 1000,
+      "height": 800
+    },
+    {
+      "stateId": "V2",
+      "file": "V2.png",
+      "build": "slide 1 build B",
+      "assetId": "IMG_V2",
+      "mime": "image/png",
+      "width": 1000,
+      "height": 800
+    },
+    {
+      "stateId": "V3",
+      "file": "V3.png",
+      "build": "slide 1 build C",
+      "assetId": "IMG_V3",
+      "mime": "image/png",
+      "width": 1000,
+      "height": 800
+    },
+    {
+      "stateId": "V4",
+      "file": "V4.png",
+      "build": "slide 2 build A",
+      "assetId": "IMG_V4",
+      "mime": "image/png",
+      "width": 1000,
+      "height": 800
+    }
+  ],
+  "resources": {
+    "deck": "slides.pdf"
+  },
+  "timeline": "timeline.json"
+}

@@ -1,0 +1,31 @@
+{
+  "fixtureId": "F3",
+  "inputRevision": 1,
+  "mode": "mock",
+  "providerRequests": 0,
+  "sourceDurationMs": 10000,
+  "sourceHashes": [
+    {
+      "id": "A",
+      "mime": "audio/wav",
+      "sha256": "28aabdd00a5ebe7264d0a0ca04e28931cfcdd4afe3b898d74906304887062c8b"
+    },
+    {
+      "id": "T",
+      "mime": "text/vtt",
+      "sha256": "1886f61a58bd9376840378c3558612e85ab259ab13bff6d4f4cf3ca11e8e78ce"
+    },
+    {
+      "id": "IMG_V1",
+      "mime": "image/png",
+      "sha256": "2f11e77bc3b0e1bc8146082908cd924936436a841c0d3df0eed96692f1edee2d"
+    }
+  ],
+  "deterministicErrors": [],
+  "softwareGate": "passed",
+  "liveSemanticGate": "blocked: no further paid provider calls authorized; OpenAI run ended with token_invalidated",
+  "criticalMeaningReview": "not performed on a live transformed output",
+  "reviewerRole": "automated offline software check",
+  "targetUserEvaluation": "not performed",
+  "processingMs": 77
+}

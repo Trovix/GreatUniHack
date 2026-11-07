@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "sourceAuthor": "Project-authored synthetic benchmark, based on BUILD_SPEC section 12",
+  "sourceAudio": "Offline native macOS Daniel stock voice. Original source A only; not ElevenLabs adaptation B.",
+  "imageSize": {
+    "width": 1000,
+    "height": 800
+  },
+  "coordinateMapping": "x = 100 + 70Q; y = 680 - 40P (except separately labelled axis-swap fixture)",
+  "palette": {
+    "supply": "#111111",
+    "initial": "#277cbd",
+    "changed": "#7020ad",
+    "background": "#ffffff",
+    "linePatterns": {
+      "supply": "solid",
+      "initial": "12 6 dashed",
+      "changed": "14 5 3 5 dash-dot"
+    },
+    "validation": "Blue/purple all-pairs categorical checks pass: worst CVD ΔE 12.0; normal ΔE 21.3; contrast >=3:1. Required black supply is a documented neutral exception to categorical chroma/lightness gates, with direct labels and solid line identity."
+  },
+  "pdf": "Image-only 1000x800 pages; no hidden text layers, SVG IDs, OCR or answer manifests.",
+  "productionBoundary": "Only source.json, timeline.json, captions.vtt, source.wav and PNGs are read by scripts/fixtures.ts. expected/ is tests/reviewer-only.",
+  "fixtures": [
+    {
+      "id": "F1",
+      "title": "Demand, supply and grouped algebra — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "03d866188df6c0485f153fca7808774259e6ee13c15dd5a4537c6d7bb0987385"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 702,
+          "sha256": "1ae07112721bb3fd5ad8bb2ffa2152e02c3c1f4ec20215412b3658d0a9a34ad4"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 436583,
+          "sha256": "8e0dcbacc868be65f9e863bb4249dcf26ffb0595ed5fa048fb4fb8e121317f89"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 74181,
+          "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 75607,
+          "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "c568607addaee3906ff9692f45b7a2561624cd18444d64f70ba1f29c692e1e97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1189,
+          "sha256": "417a6d4a9e6e35cb3ff87382ac99ee6d61fd47f7c8fd8213e6eae24af18c618a"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "title": "Demand, supply and grouped algebra — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "8fc8ea5218001edc26c2a9b099a3214fe2994f18d498ab92e1a5ad732fe1e2fe"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 701,
+          "sha256": "f58201476acf99a71fb9d9abadb76363e01c81f94e7140fcf7bf7d93c63b9374"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 425728,
+          "sha256": "81bbe12cd31edd05367b4503bba01071d55d63841168b8b0d716f486f6535227"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 73079,
+          "sha256": "a5a441d9aef2179377cbe095746888c04b5cdf24e20a805788a9df7365ced2b9"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 74636,
+          "sha256": "f4ea37c70b35f1364cff3a946ddcc2cba73db14dcd48a700babeb915488ada80"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "c568607addaee3906ff9692f45b7a2561624cd18444d64f70ba1f29c692e1e97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1189,
+          "sha256": "23c4e238d64807cde4187e9f8323146fe8ff3c156f67cf832f324f8dce5df07e"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "title": "Two labelled options — synthetic lecture",
+      "durationMs": 10000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 480044,
+          "sha256": "28aabdd00a5ebe7264d0a0ca04e28931cfcdd4afe3b898d74906304887062c8b"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 108,
+          "sha256": "1886f61a58bd9376840378c3558612e85ab259ab13bff6d4f4cf3ca11e8e78ce"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 78098,
+          "sha256": "da507083864038ba1a90ac343daea13a692d09163a2cbd96d9345967b039ef9c"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 49844,
+          "sha256": "2f11e77bc3b0e1bc8146082908cd924936436a841c0d3df0eed96692f1edee2d"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 180,
+          "sha256": "1b1e139444b1dc085761165ea4385e3e8ed2282121316638c658b41eaf5ff4f5"
+        },
+        {
+          "file": "source.json",
+          "bytes": 608,
+          "sha256": "47d2493ce4d1f296c1d0b4d4f817e1ef999d27d01aae84a504ef96afe0a9a599"
+        }
+      ]
+    },
+    {
+      "id": "F4a",
+      "title": "Demand, supply and grouped algebra — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "b4312e39cb2beeabc98c270cd083d8f93e5539fd5c2042629b43139384560a44"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 700,
+          "sha256": "59a80039f9b155a39de9ed13a7f42b8a033465b8b8330a4c4768d97129eaf924"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 436583,
+          "sha256": "8e0dcbacc868be65f9e863bb4249dcf26ffb0595ed5fa048fb4fb8e121317f89"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 74181,
+          "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 75607,
+          "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "c568607addaee3906ff9692f45b7a2561624cd18444d64f70ba1f29c692e1e97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1190,
+          "sha256": "2cb8db223e5860d94302be372d75d661a5e4098032aa68c3bbeb163bb2a6bf2c"
+        }
+      ]
+    },
+    {
+      "id": "F4b",
+      "title": "Demand, supply and grouped algebra — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "03d866188df6c0485f153fca7808774259e6ee13c15dd5a4537c6d7bb0987385"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 702,
+          "sha256": "1ae07112721bb3fd5ad8bb2ffa2152e02c3c1f4ec20215412b3658d0a9a34ad4"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 414762,
+          "sha256": "8d6e08de23e0f59ce5bd70fc9a8ca086f011cd851cc8c4b33ce632648d3e25ac"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 74181,
+          "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 75607,
+          "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 54064,
+          "sha256": "b68127ffbd28d83a8f5870a484c93b46069d43aee956c75e78a63dd2efee7c3a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "c568607addaee3906ff9692f45b7a2561624cd18444d64f70ba1f29c692e1e97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1190,
+          "sha256": "bb358cd9ce97cdc8b51645e3c030d679bac131e292557c20a7a4d526b7a19e4b"
+        }
+      ]
+    },
+    {
+      "id": "M-gap",
+      "title": "Demand, supply and grouped algebra — synthetic lecture (timeline gap)",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "03d866188df6c0485f153fca7808774259e6ee13c15dd5a4537c6d7bb0987385"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 702,
+          "sha256": "1ae07112721bb3fd5ad8bb2ffa2152e02c3c1f4ec20215412b3658d0a9a34ad4"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 436583,
+          "sha256": "8e0dcbacc868be65f9e863bb4249dcf26ffb0595ed5fa048fb4fb8e121317f89"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 74181,
+          "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 75607,
+          "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 723,
+          "sha256": "fbee220335d7244ed49bd96ce2fdb7b6f23d0eb6341e3415f117d6622d998c6e"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1207,
+          "sha256": "53c42579850d4444cc9dcfc802cd6a028389ee5e06665d12d36cf170c8aa975a"
+        }
+      ]
+    },
+    {
+      "id": "M-axis-swap",
+      "title": "Price and quantity observations — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "bc5a8732e39fb12bb6a86208216e0a35952c61f7525afb32f39d4da4260f79d0"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 681,
+          "sha256": "a3540cbf8892954d484dacd6785eaa1ba46a3120f6cf411ba3759e735ed97b28"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 80526,
+          "sha256": "79210703dcf5d4ccab94d9b084c67f3283439e3f229e1b6ae16dddb4f747cad0"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 51011,
+          "sha256": "20be106ad19f817332012f0a5fb83194e4d81e31de469f74cbecc241b01f9cfa"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 180,
+          "sha256": "080a295f4191ecafba47afff0de836326a0e39ca4071bf8ac139b8d2e325dad6"
+        },
+        {
+          "file": "source.json",
+          "bytes": 628,
+          "sha256": "a3e934e8a26fed832aec8e3a2253deabc8e1e386e9169528d5175952b517dca8"
+        }
+      ]
+    },
+    {
+      "id": "M-harmless-deixis",
+      "title": "Self-contained chart explanation — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "eec1aa6047eac8e04a6185fa1e6cd37df9ea3257fd7cc4b81509b4506e78c31f"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 1063,
+          "sha256": "c91cba1c3a017daf16d383ad24db4ecbff21ef08686614fb3bbdb6d24f6ead42"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 436583,
+          "sha256": "8e0dcbacc868be65f9e863bb4249dcf26ffb0595ed5fa048fb4fb8e121317f89"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 74181,
+          "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 75607,
+          "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "c568607addaee3906ff9692f45b7a2561624cd18444d64f70ba1f29c692e1e97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1202,
+          "sha256": "ae0af0dd82e47635395043ce850fbd61a56de3a1fff30cb200827c58b73e7dc3"
+        }
+      ]
+    },
+    {
+      "id": "M-self-contained",
+      "title": "Self-contained chart explanation — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "a5af99f34f82ea355c22f356a97479c6963f0381797589351ef4b9b2eee6faf7"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 1047,
+          "sha256": "b6cfc36277243504ded28c79dff84c7e530b33253caf704a96f5b5d4d341733f"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 436583,
+          "sha256": "8e0dcbacc868be65f9e863bb4249dcf26ffb0595ed5fa048fb4fb8e121317f89"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 74181,
+          "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 75607,
+          "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "c568607addaee3906ff9692f45b7a2561624cd18444d64f70ba1f29c692e1e97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1201,
+          "sha256": "7cd67987e2d746ffd2f1b5ca21c8b5e7addea09904155af3c5b09b7ebf6a3176"
+        }
+      ]
+    },
+    {
+      "id": "M-injection",
+      "title": "Demand, supply and grouped algebra — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "03d866188df6c0485f153fca7808774259e6ee13c15dd5a4537c6d7bb0987385"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 702,
+          "sha256": "1ae07112721bb3fd5ad8bb2ffa2152e02c3c1f4ec20215412b3658d0a9a34ad4"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 447335,
+          "sha256": "d3e689237abdec5a832c29e6ecb321f0ee2f91fe0d20135a528d580badd24f5f"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 79427,
+          "sha256": "53a82fe53f9734c26b8e1de6a481fef5b1b71d0c51cfde2d9212a48b5b8a4fbd"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 80717,
+          "sha256": "648c5e4e6e3ca9a09d1aa23d89848a186cfe5b2423c22453f9a8e91d29d86c74"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "c568607addaee3906ff9692f45b7a2561624cd18444d64f70ba1f29c692e1e97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1198,
+          "sha256": "cb160d0814c7060bb9ff27d060c9c0ed0ac295f315e6ac237b9acf5d5901131e"
+        }
+      ]
+    },
+    {
+      "id": "M-timeline-edited",
+      "title": "Demand, supply and grouped algebra — synthetic lecture",
+      "durationMs": 60000,
+      "synthetic": true,
+      "assets": [
+        {
+          "file": "source.wav",
+          "bytes": 2880044,
+          "sha256": "03d866188df6c0485f153fca7808774259e6ee13c15dd5a4537c6d7bb0987385"
+        },
+        {
+          "file": "captions.vtt",
+          "bytes": 702,
+          "sha256": "1ae07112721bb3fd5ad8bb2ffa2152e02c3c1f4ec20215412b3658d0a9a34ad4"
+        },
+        {
+          "file": "slides.pdf",
+          "bytes": 436583,
+          "sha256": "8e0dcbacc868be65f9e863bb4249dcf26ffb0595ed5fa048fb4fb8e121317f89"
+        },
+        {
+          "file": "V1.png",
+          "bytes": 58258,
+          "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+        },
+        {
+          "file": "V2.png",
+          "bytes": 74181,
+          "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+        },
+        {
+          "file": "V3.png",
+          "bytes": 75607,
+          "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+        },
+        {
+          "file": "V4.png",
+          "bytes": 46254,
+          "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+        },
+        {
+          "file": "timeline.json",
+          "bytes": 904,
+          "sha256": "6575f71ea0184afbaa0420808be3283d4e01c02001049ee48324d95dddf4dc97"
+        },
+        {
+          "file": "source.json",
+          "bytes": 1204,
+          "sha256": "3b0270df9e3ee0cf58c177cfbaead4f3b40b9ef3de103f436874a05356bff980"
+        }
+      ]
+    }
+  ]
+}

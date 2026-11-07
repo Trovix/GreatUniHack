@@ -1,0 +1,38 @@
+[
+  {
+    "id": "O1",
+    "stateId": "V1",
+    "assetId": "IMG_V1",
+    "startMs": 0,
+    "endMs": 10000,
+    "alignment": "provided_fixture",
+    "build": "slide 1 build A"
+  },
+  {
+    "id": "O2",
+    "stateId": "V2",
+    "assetId": "IMG_V2",
+    "startMs": 10000,
+    "endMs": 20000,
+    "alignment": "provided_fixture",
+    "build": "slide 1 build B"
+  },
+  {
+    "id": "O3",
+    "stateId": "V4",
+    "assetId": "IMG_V4",
+    "startMs": 40000,
+    "endMs": 50000,
+    "alignment": "provided_fixture",
+    "build": "slide 2 build A"
+  },
+  {
+    "id": "O4",
+    "stateId": "V1",
+    "assetId": "IMG_V1",
+    "startMs": 50000,
+    "endMs": 60000,
+    "alignment": "provided_fixture",
+    "build": "slide 1 build A"
+  }
+]

@@ -1,0 +1,1 @@
+The fraction groups the sum of a and b as the numerator. Divide it by the entire difference c minus d. The denominator cannot equal zero, so c must not equal d. No numerical result is supplied.

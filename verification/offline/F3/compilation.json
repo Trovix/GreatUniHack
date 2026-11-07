@@ -1,0 +1,92 @@
+{
+  "inputRevision": 1,
+  "providerMode": "mock",
+  "evidence": [
+    {
+      "id": "ev_001",
+      "kind": "visual",
+      "stateId": "V1",
+      "observation": "Visual image not analysed in explicit offline mock mode; no visual interpretation is asserted."
+    },
+    {
+      "id": "ev_002",
+      "kind": "speech",
+      "cueId": "C1",
+      "quote": "This one is the option I want you to use. Read off its two values.",
+      "sourceStartMs": 0,
+      "sourceEndMs": 10000
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "dep_001",
+      "cueIds": [
+        "C1"
+      ],
+      "stateIds": [
+        "V1"
+      ],
+      "kind": "other",
+      "essential": true,
+      "question": "What essential visual information is needed to understand this passage?",
+      "evidenceIds": [
+        "ev_002",
+        "ev_001"
+      ],
+      "status": "unresolved",
+      "uncertaintyReason": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified."
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl_001",
+      "meaning": "This one is the option I want you to use. Read off its two values.",
+      "kind": "lecturer_claim",
+      "evidenceIds": [
+        "ev_002"
+      ],
+      "dependencyIds": [
+        "dep_001"
+      ]
+    },
+    {
+      "id": "cl_002",
+      "meaning": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "kind": "uncertainty",
+      "evidenceIds": [
+        "ev_002",
+        "ev_001"
+      ],
+      "dependencyIds": [
+        "dep_001"
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "id": "seg_001",
+      "text": "This one is the option I want you to use. Read off its two values. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "claimIds": [
+        "cl_001",
+        "cl_002"
+      ],
+      "dependencyIds": [
+        "dep_001"
+      ],
+      "sourceRanges": [
+        {
+          "startMs": 0,
+          "endMs": 10000
+        }
+      ],
+      "stateIds": [
+        "V1"
+      ],
+      "status": "incomplete"
+    }
+  ],
+  "unresolvedEssentialIds": [
+    "dep_001"
+  ],
+  "sourceReview": "not_reviewed"
+}

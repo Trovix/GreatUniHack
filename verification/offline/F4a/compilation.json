@@ -1,0 +1,465 @@
+{
+  "inputRevision": 1,
+  "providerMode": "mock",
+  "evidence": [
+    {
+      "id": "ev_001",
+      "kind": "visual",
+      "stateId": "V1",
+      "observation": "Visual image not analysed in explicit offline mock mode; no visual interpretation is asserted."
+    },
+    {
+      "id": "ev_002",
+      "kind": "visual",
+      "stateId": "V2",
+      "observation": "Visual image not analysed in explicit offline mock mode; no visual interpretation is asserted."
+    },
+    {
+      "id": "ev_003",
+      "kind": "visual",
+      "stateId": "V3",
+      "observation": "Visual image not analysed in explicit offline mock mode; no visual interpretation is asserted."
+    },
+    {
+      "id": "ev_004",
+      "kind": "visual",
+      "stateId": "V4",
+      "observation": "Visual image not analysed in explicit offline mock mode; no visual interpretation is asserted."
+    },
+    {
+      "id": "ev_005",
+      "kind": "speech",
+      "cueId": "C1",
+      "quote": "We start where these two lines cross. That is our initial equilibrium.",
+      "sourceStartMs": 0,
+      "sourceEndMs": 10000
+    },
+    {
+      "id": "ev_006",
+      "kind": "speech",
+      "cueId": "C2",
+      "quote": "Now demand increases. It moves from the blue line to the purple line, while supply stays put.",
+      "sourceStartMs": 10000,
+      "sourceEndMs": 20000
+    },
+    {
+      "id": "ev_007",
+      "kind": "speech",
+      "cueId": "C3",
+      "quote": "The new equilibrium is here. The price falls, while the quantity rises.",
+      "sourceStartMs": 20000,
+      "sourceEndMs": 30000
+    },
+    {
+      "id": "ev_008",
+      "kind": "speech",
+      "cueId": "C4",
+      "quote": "This is a shift of demand, not a movement along the original demand curve.",
+      "sourceStartMs": 30000,
+      "sourceEndMs": 40000
+    },
+    {
+      "id": "ev_009",
+      "kind": "speech",
+      "cueId": "C5",
+      "quote": "In the highlighted version, this whole top part is divided by this bottom part. The brackets are important.",
+      "sourceStartMs": 40000,
+      "sourceEndMs": 50000
+    },
+    {
+      "id": "ev_010",
+      "kind": "speech",
+      "cueId": "C6",
+      "quote": "Returning to our original picture, this is the starting point again.",
+      "sourceStartMs": 50000,
+      "sourceEndMs": 60000
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "dep_001",
+      "cueIds": [
+        "C1"
+      ],
+      "stateIds": [
+        "V1"
+      ],
+      "kind": "other",
+      "essential": true,
+      "question": "What essential visual information is needed to understand this passage?",
+      "evidenceIds": [
+        "ev_005",
+        "ev_001"
+      ],
+      "status": "unresolved",
+      "uncertaintyReason": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified."
+    },
+    {
+      "id": "dep_002",
+      "cueIds": [
+        "C2"
+      ],
+      "stateIds": [
+        "V2"
+      ],
+      "kind": "other",
+      "essential": true,
+      "question": "What essential visual information is needed to understand this passage?",
+      "evidenceIds": [
+        "ev_006",
+        "ev_002"
+      ],
+      "status": "unresolved",
+      "uncertaintyReason": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified."
+    },
+    {
+      "id": "dep_003",
+      "cueIds": [
+        "C3"
+      ],
+      "stateIds": [
+        "V3"
+      ],
+      "kind": "other",
+      "essential": true,
+      "question": "What essential visual information is needed to understand this passage?",
+      "evidenceIds": [
+        "ev_007",
+        "ev_003"
+      ],
+      "status": "unresolved",
+      "uncertaintyReason": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified."
+    },
+    {
+      "id": "dep_004",
+      "cueIds": [
+        "C4"
+      ],
+      "stateIds": [
+        "V3"
+      ],
+      "kind": "other",
+      "essential": true,
+      "question": "What essential visual information is needed to understand this passage?",
+      "evidenceIds": [
+        "ev_008",
+        "ev_003"
+      ],
+      "status": "unresolved",
+      "uncertaintyReason": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified."
+    },
+    {
+      "id": "dep_005",
+      "cueIds": [
+        "C5"
+      ],
+      "stateIds": [
+        "V4"
+      ],
+      "kind": "other",
+      "essential": true,
+      "question": "What essential visual information is needed to understand this passage?",
+      "evidenceIds": [
+        "ev_009",
+        "ev_004"
+      ],
+      "status": "unresolved",
+      "uncertaintyReason": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified."
+    },
+    {
+      "id": "dep_006",
+      "cueIds": [
+        "C6"
+      ],
+      "stateIds": [
+        "V1"
+      ],
+      "kind": "other",
+      "essential": true,
+      "question": "What essential visual information is needed to understand this passage?",
+      "evidenceIds": [
+        "ev_010",
+        "ev_001"
+      ],
+      "status": "unresolved",
+      "uncertaintyReason": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified."
+    }
+  ],
+  "claims": [
+    {
+      "id": "cl_001",
+      "meaning": "We start where these two lines cross. That is our initial equilibrium.",
+      "kind": "lecturer_claim",
+      "evidenceIds": [
+        "ev_005"
+      ],
+      "dependencyIds": [
+        "dep_001"
+      ]
+    },
+    {
+      "id": "cl_002",
+      "meaning": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "kind": "uncertainty",
+      "evidenceIds": [
+        "ev_005",
+        "ev_001"
+      ],
+      "dependencyIds": [
+        "dep_001"
+      ]
+    },
+    {
+      "id": "cl_003",
+      "meaning": "Now demand increases. It moves from the blue line to the purple line, while supply stays put.",
+      "kind": "lecturer_claim",
+      "evidenceIds": [
+        "ev_006"
+      ],
+      "dependencyIds": [
+        "dep_002"
+      ]
+    },
+    {
+      "id": "cl_004",
+      "meaning": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "kind": "uncertainty",
+      "evidenceIds": [
+        "ev_006",
+        "ev_002"
+      ],
+      "dependencyIds": [
+        "dep_002"
+      ]
+    },
+    {
+      "id": "cl_005",
+      "meaning": "The new equilibrium is here. The price falls, while the quantity rises.",
+      "kind": "lecturer_claim",
+      "evidenceIds": [
+        "ev_007"
+      ],
+      "dependencyIds": [
+        "dep_003"
+      ]
+    },
+    {
+      "id": "cl_006",
+      "meaning": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "kind": "uncertainty",
+      "evidenceIds": [
+        "ev_007",
+        "ev_003"
+      ],
+      "dependencyIds": [
+        "dep_003"
+      ]
+    },
+    {
+      "id": "cl_007",
+      "meaning": "This is a shift of demand, not a movement along the original demand curve.",
+      "kind": "lecturer_claim",
+      "evidenceIds": [
+        "ev_008"
+      ],
+      "dependencyIds": [
+        "dep_004"
+      ]
+    },
+    {
+      "id": "cl_008",
+      "meaning": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "kind": "uncertainty",
+      "evidenceIds": [
+        "ev_008",
+        "ev_003"
+      ],
+      "dependencyIds": [
+        "dep_004"
+      ]
+    },
+    {
+      "id": "cl_009",
+      "meaning": "In the highlighted version, this whole top part is divided by this bottom part. The brackets are important.",
+      "kind": "lecturer_claim",
+      "evidenceIds": [
+        "ev_009"
+      ],
+      "dependencyIds": [
+        "dep_005"
+      ]
+    },
+    {
+      "id": "cl_010",
+      "meaning": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "kind": "uncertainty",
+      "evidenceIds": [
+        "ev_009",
+        "ev_004"
+      ],
+      "dependencyIds": [
+        "dep_005"
+      ]
+    },
+    {
+      "id": "cl_011",
+      "meaning": "Returning to our original picture, this is the starting point again.",
+      "kind": "lecturer_claim",
+      "evidenceIds": [
+        "ev_010"
+      ],
+      "dependencyIds": [
+        "dep_006"
+      ]
+    },
+    {
+      "id": "cl_012",
+      "meaning": "The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "kind": "uncertainty",
+      "evidenceIds": [
+        "ev_010",
+        "ev_001"
+      ],
+      "dependencyIds": [
+        "dep_006"
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "id": "seg_001",
+      "text": "We start where these two lines cross. That is our initial equilibrium. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "claimIds": [
+        "cl_001",
+        "cl_002"
+      ],
+      "dependencyIds": [
+        "dep_001"
+      ],
+      "sourceRanges": [
+        {
+          "startMs": 0,
+          "endMs": 10000
+        }
+      ],
+      "stateIds": [
+        "V1"
+      ],
+      "status": "incomplete"
+    },
+    {
+      "id": "seg_002",
+      "text": "Now demand increases. It moves from the blue line to the purple line, while supply stays put. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "claimIds": [
+        "cl_003",
+        "cl_004"
+      ],
+      "dependencyIds": [
+        "dep_002"
+      ],
+      "sourceRanges": [
+        {
+          "startMs": 10000,
+          "endMs": 20000
+        }
+      ],
+      "stateIds": [
+        "V2"
+      ],
+      "status": "incomplete"
+    },
+    {
+      "id": "seg_003",
+      "text": "The new equilibrium is here. The price falls, while the quantity rises. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "claimIds": [
+        "cl_005",
+        "cl_006"
+      ],
+      "dependencyIds": [
+        "dep_003"
+      ],
+      "sourceRanges": [
+        {
+          "startMs": 20000,
+          "endMs": 30000
+        }
+      ],
+      "stateIds": [
+        "V3"
+      ],
+      "status": "incomplete"
+    },
+    {
+      "id": "seg_004",
+      "text": "This is a shift of demand, not a movement along the original demand curve. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "claimIds": [
+        "cl_007",
+        "cl_008"
+      ],
+      "dependencyIds": [
+        "dep_004"
+      ],
+      "sourceRanges": [
+        {
+          "startMs": 30000,
+          "endMs": 40000
+        }
+      ],
+      "stateIds": [
+        "V3"
+      ],
+      "status": "incomplete"
+    },
+    {
+      "id": "seg_005",
+      "text": "In the highlighted version, this whole top part is divided by this bottom part. The brackets are important. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "claimIds": [
+        "cl_009",
+        "cl_010"
+      ],
+      "dependencyIds": [
+        "dep_005"
+      ],
+      "sourceRanges": [
+        {
+          "startMs": 40000,
+          "endMs": 50000
+        }
+      ],
+      "stateIds": [
+        "V4"
+      ],
+      "status": "incomplete"
+    },
+    {
+      "id": "seg_006",
+      "text": "Returning to our original picture, this is the starting point again. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.",
+      "claimIds": [
+        "cl_011",
+        "cl_012"
+      ],
+      "dependencyIds": [
+        "dep_006"
+      ],
+      "sourceRanges": [
+        {
+          "startMs": 50000,
+          "endMs": 60000
+        }
+      ],
+      "stateIds": [
+        "V1"
+      ],
+      "status": "incomplete"
+    }
+  ],
+  "unresolvedEssentialIds": [
+    "dep_001",
+    "dep_002",
+    "dep_003",
+    "dep_004",
+    "dep_005",
+    "dep_006"
+  ],
+  "sourceReview": "not_reviewed"
+}

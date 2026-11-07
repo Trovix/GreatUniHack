@@ -1,0 +1,39 @@
+{
+  "fixtureId": "F1",
+  "purpose": "Independent test/reviewer expectations. NEVER include this file in production Bundle, provider prompts or selected course context.",
+  "reviewerRole": "developer source reviewer; not target-user validation",
+  "sourceDurationMs": 60000,
+  "expectedAdaptationStatus": "supported only after actual semantic review",
+  "criticalMeanings": [
+    {"id":"K1","meaning":"Horizontal axis is quantity in units; vertical axis is price in pounds per unit. Establish these before giving plotted equilibrium values.","source":["V1","V2","V3"],"mustPrecede":["K3","K7"]},
+    {"id":"K2","meaning":"Identify supply S as rising and initial demand D0 as falling as quantity increases.","source":["V1"]},
+    {"id":"K3","meaning":"The initial intersection E0 has quantity 5 units and price £5 per unit.","source":["C1","V1"]},
+    {"id":"K4","meaning":"Demand moves from D0 to D1; new demand lies further right/above in the diagram.","source":["C2","V2"]},
+    {"id":"K5","meaning":"Supply stays unchanged. This is not a supply shift.","source":["C2","V1","V2"]},
+    {"id":"K6","meaning":"The source condition is more buyers, with other demand determinants unchanged; do not infer a different cause.","source":["V2","V3"]},
+    {"id":"K7","meaning":"The new intersection E1 is between unchanged supply and new demand, at quantity 7 units and price £7 per unit.","source":["C3","V3"]},
+    {"id":"K8","meaning":"Both equilibrium price and quantity increase relative to E0.","source":["C3","V3"]},
+    {"id":"K9","meaning":"Distinguish a shift of demand from movement along the original demand curve, preserving the lecturer's teaching point.","source":["C4","V3"]},
+    {"id":"K10","meaning":"r is the sum of a and b, all divided by the whole quantity c minus d. Spoken numerator/denominator grouping must be unambiguous.","source":["C5","V4"]},
+    {"id":"K11","meaning":"The denominator cannot be zero; the visible restriction is c not equal to d.","source":["V4"]},
+    {"id":"K12","meaning":"C6 returns to the original diagram and E0 for reference, not a second economic event or actual reversal of demand.","source":["C6","V1"],"occurrence":"O5"}
+  ],
+  "prohibitedAssertions": [
+    "A numerical value for r",
+    "An unrequested or unlabelled percentage price change",
+    "Supply shifts or changes",
+    "Invented exact plot coordinates",
+    "E0 and E1 are the same equilibrium",
+    "The market or demand returns to E0 because the earlier slide is shown again"
+  ],
+  "comprehensionQuestions": [
+    "What do the horizontal and vertical axes measure, including units?",
+    "What are the initial and new equilibrium price/quantity pairs?",
+    "Which curve changed, and which did not?",
+    "What source condition prompted the change?",
+    "Why is this a shift of demand rather than movement along the original curve?",
+    "Reconstruct the grouped equation and state its restriction.",
+    "Did returning to the original slide demonstrate another real market change? Why not?"
+  ],
+  "reviewRule": "Read actual rendered sources first, then inspect the complete generated script and listen to generated B. IDs, keyword matches or model self-scores alone do not pass any item. Record omissions, contradictions and unsupported claims individually."
+}

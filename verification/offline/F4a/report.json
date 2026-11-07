@@ -1,0 +1,46 @@
+{
+  "fixtureId": "F4a",
+  "inputRevision": 1,
+  "mode": "mock",
+  "providerRequests": 0,
+  "sourceDurationMs": 60000,
+  "sourceHashes": [
+    {
+      "id": "A",
+      "mime": "audio/wav",
+      "sha256": "b4312e39cb2beeabc98c270cd083d8f93e5539fd5c2042629b43139384560a44"
+    },
+    {
+      "id": "T",
+      "mime": "text/vtt",
+      "sha256": "59a80039f9b155a39de9ed13a7f42b8a033465b8b8330a4c4768d97129eaf924"
+    },
+    {
+      "id": "IMG_V1",
+      "mime": "image/png",
+      "sha256": "4f4f161b036dc0f720214e91f96b2c05a5e393b26c569db78a6e1a24eeb8c373"
+    },
+    {
+      "id": "IMG_V2",
+      "mime": "image/png",
+      "sha256": "922c31db313c620cb84f88bc171051188e00923c3b6428d6f51c7704c5f0f4a8"
+    },
+    {
+      "id": "IMG_V3",
+      "mime": "image/png",
+      "sha256": "ecd661f2480eeba2dc52da73b9fe5f106e3e8f5e64bf583d5f46a5e3391762fb"
+    },
+    {
+      "id": "IMG_V4",
+      "mime": "image/png",
+      "sha256": "ebe023d3148e1674a1044ebf89b0218484ea18326b56625384ae62d072c5423a"
+    }
+  ],
+  "deterministicErrors": [],
+  "softwareGate": "passed",
+  "liveSemanticGate": "blocked: no further paid provider calls authorized; OpenAI run ended with token_invalidated",
+  "criticalMeaningReview": "not performed on a live transformed output",
+  "reviewerRole": "automated offline software check",
+  "targetUserEvaluation": "not performed",
+  "processingMs": 486
+}

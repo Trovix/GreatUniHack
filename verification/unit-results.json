@@ -1,0 +1,2044 @@
+{
+  "numTotalTestSuites": 32,
+  "numPassedTestSuites": 32,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 161,
+  "numPassedTests": 161,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1794062106528,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "local source-grounded question gate"
+          ],
+          "fullName": "local source-grounded question gate retrieves only approved current-segment text with supporting evidence",
+          "status": "passed",
+          "title": "retrieves only approved current-segment text with supporting evidence",
+          "duration": 4.298708999999974,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local source-grounded question gate"
+          ],
+          "fullName": "local source-grounded question gate never selects the unidentified F3-style option even when question proposes its value",
+          "status": "passed",
+          "title": "never selects the unidentified F3-style option even when question proposes its value",
+          "duration": 0.40183300000001054,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local source-grounded question gate"
+          ],
+          "fullName": "local source-grounded question gate never silently reconciles an F4-style conflict",
+          "status": "passed",
+          "title": "never silently reconciles an F4-style conflict",
+          "duration": 0.12420800000001009,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local source-grounded question gate"
+          ],
+          "fullName": "local source-grounded question gate declines novel numbers and facts and never interprets source instructions as app authority",
+          "status": "passed",
+          "title": "declines novel numbers and facts and never interprets source instructions as app authority",
+          "duration": 0.26325000000002774,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local source-grounded question gate"
+          ],
+          "fullName": "local source-grounded question gate does not retrieve another nonoverlapping segment or an unknown current segment",
+          "status": "passed",
+          "title": "does not retrieve another nonoverlapping segment or an unknown current segment",
+          "duration": 0.10487499999999272,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062106839,
+      "endTime": 1794062106844.2632,
+      "status": "passed",
+      "message": "",
+      "name": "tests/integration/api-questions.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "loopback pairing and input boundaries"
+          ],
+          "fullName": "loopback pairing and input boundaries requires the exact Origin and bearer pair, rejects Host rebinding, and reveals only minimal unauthenticated health",
+          "status": "passed",
+          "title": "requires the exact Origin and bearer pair, rejects Host rebinding, and reveals only minimal unauthenticated health",
+          "duration": 59.90662499999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "loopback pairing and input boundaries"
+          ],
+          "fullName": "loopback pairing and input boundaries generates a restrictive pairing token file without exposing it through health or capabilities",
+          "status": "passed",
+          "title": "generates a restrictive pairing token file without exposing it through health or capabilities",
+          "duration": 47.14029199999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "loopback pairing and input boundaries"
+          ],
+          "fullName": "loopback pairing and input boundaries computes actual hash, image dimensions and duration rather than trusting metadata",
+          "status": "passed",
+          "title": "computes actual hash, image dimensions and duration rather than trusting metadata",
+          "duration": 219.60800000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "loopback pairing and input boundaries"
+          ],
+          "fullName": "loopback pairing and input boundaries rejects executable HTML, MIME mismatch, malformed VTT, out-of-range captions and oversized JSON",
+          "status": "passed",
+          "title": "rejects executable HTML, MIME mismatch, malformed VTT, out-of-range captions and oversized JSON",
+          "duration": 96.97508400000004,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "loopback pairing and input boundaries"
+          ],
+          "fullName": "loopback pairing and input boundaries keeps captions and STT consent separate; missing captions block compile but explicit STT creates a new revision",
+          "status": "passed",
+          "title": "keeps captions and STT consent separate; missing captions block compile but explicit STT creates a new revision",
+          "duration": 249.38524999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "persistent queue, cancellation, stale results and idempotency"
+          ],
+          "fullName": "persistent queue, cancellation, stale results and idempotency runs one compilation at a time in persisted order and cancels a queued second request without affecting the first",
+          "status": "passed",
+          "title": "runs one compilation at a time in persisted order and cancels a queued second request without affecting the first",
+          "duration": 244.53433300000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "persistent queue, cancellation, stale results and idempotency"
+          ],
+          "fullName": "persistent queue, cancellation, stale results and idempotency deduplicates concurrent and completed compile/synthesis keys and independently validates generated audio",
+          "status": "passed",
+          "title": "deduplicates concurrent and completed compile/synthesis keys and independently validates generated audio",
+          "duration": 220.26412499999992,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "persistent queue, cancellation, stale results and idempotency"
+          ],
+          "fullName": "persistent queue, cancellation, stale results and idempotency discards a provider completion after an input edit, keeping old question turns out of current revision",
+          "status": "passed",
+          "title": "discards a provider completion after an input edit, keeping old question turns out of current revision",
+          "duration": 145.94287499999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "persistent queue, cancellation, stale results and idempotency"
+          ],
+          "fullName": "persistent queue, cancellation, stale results and idempotency tombstones deletion during synthesis so a late response cannot recreate audio or a manifest",
+          "status": "passed",
+          "title": "tombstones deletion during synthesis so a late response cannot recreate audio or a manifest",
+          "duration": 322.5710419999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "persistent queue, cancellation, stale results and idempotency"
+          ],
+          "fullName": "persistent queue, cancellation, stale results and idempotency rejects malformed compilations and unvalidated audio before storing playable chunks",
+          "status": "passed",
+          "title": "rejects malformed compilations and unvalidated audio before storing playable chunks",
+          "duration": 196.58474999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "grounded local questions, warnings and exact resume position"
+          ],
+          "fullName": "grounded local questions, warnings and exact resume position retrieves checked source text, saves bounded revision-scoped question history, and restores the exact playback offset",
+          "status": "passed",
+          "title": "retrieves checked source text, saves bounded revision-scoped question history, and restores the exact playback offset",
+          "duration": 138.12649999999985,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "grounded local questions, warnings and exact resume position"
+          ],
+          "fullName": "grounded local questions, warnings and exact resume position preserves incomplete source limitations in Q&A and prepends a real audible warning before TTS",
+          "status": "passed",
+          "title": "preserves incomplete source limitations in Q&A and prepends a real audible warning before TTS",
+          "duration": 118.17129100000011,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "grounded local questions, warnings and exact resume position"
+          ],
+          "fullName": "grounded local questions, warnings and exact resume position preserves conflict source limitations in Q&A and prepends a real audible warning before TTS",
+          "status": "passed",
+          "title": "preserves conflict source limitations in Q&A and prepends a real audible warning before TTS",
+          "duration": 129.10683300000028,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062106968,
+      "endTime": 1794062109157.107,
+      "status": "passed",
+      "message": "",
+      "name": "tests/integration/api.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "rendered selected-section capture in Chromium"
+          ],
+          "fullName": "rendered selected-section capture in Chromium retains the selected node after DOM reorder and rejects a replaced/hidden node",
+          "status": "passed",
+          "title": "retains the selected node after DOM reorder and rejects a replaced/hidden node",
+          "duration": 62.433583,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered selected-section capture in Chromium"
+          ],
+          "fullName": "rendered selected-section capture in Chromium invalidates previous UUID selections after a new preview rather than reusing ordinal IDs",
+          "status": "passed",
+          "title": "invalidates previous UUID selections after a new preview rather than reusing ordinal IDs",
+          "duration": 6.432000000000016,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered selected-section capture in Chromium"
+          ],
+          "fullName": "rendered selected-section capture in Chromium aborts a declared-oversize response before it continues downloading in the background",
+          "status": "passed",
+          "title": "aborts a declared-oversize response before it continues downloading in the background",
+          "duration": 80.99666699999989,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered selected-section capture in Chromium"
+          ],
+          "fullName": "rendered selected-section capture in Chromium excludes hidden/personal/form/script metadata and resource anchors using the same rules",
+          "status": "passed",
+          "title": "excludes hidden/personal/form/script metadata and resource anchors using the same rules",
+          "duration": 22.229874999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062107588,
+      "endTime": 1794062107760.23,
+      "status": "passed",
+      "message": "",
+      "name": "tests/integration/capture-dom.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "session-protected synthetic course fixture"
+          ],
+          "fullName": "session-protected synthetic course fixture never serves course resources to a fresh unauthenticated Node client",
+          "status": "passed",
+          "title": "never serves course resources to a fresh unauthenticated Node client",
+          "duration": 37.021333,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "session-protected synthetic course fixture"
+          ],
+          "fullName": "session-protected synthetic course fixture requires explicit same-origin entry and issues an HttpOnly scoped session",
+          "status": "passed",
+          "title": "requires explicit same-origin entry and issues an HttpOnly scoped session",
+          "duration": 10.642749999999978,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "session-protected synthetic course fixture"
+          ],
+          "fullName": "session-protected synthetic course fixture keeps activity redirects explicit and refuses actions",
+          "status": "passed",
+          "title": "keeps activity redirects explicit and refuses actions",
+          "duration": 5.8573749999999905,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062106760,
+      "endTime": 1794062106813.8574,
+      "status": "passed",
+      "message": "",
+      "name": "tests/integration/session-fixture.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge keeps storage trusted-only and rejects website/content-script messages",
+          "status": "passed",
+          "title": "keeps storage trusted-only and rejects website/content-script messages",
+          "duration": 77.92670800000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge accepts only opaque discovered resource IDs, not caller URLs or tab IDs",
+          "status": "passed",
+          "title": "accepts only opaque discovered resource IDs, not caller URLs or tab IDs",
+          "duration": 5.451458000000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge imports only the selected direct resource and redacts sensitive navigation queries",
+          "status": "passed",
+          "title": "imports only the selected direct resource and redacts sensitive navigation queries",
+          "duration": 3.64987499999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge does not switch to a newly focused tab and invalidates navigation",
+          "status": "passed",
+          "title": "does not switch to a newly focused tab and invalidates navigation",
+          "duration": 1.0548330000000021,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge opens side panel synchronously before the first awaited binding operation",
+          "status": "passed",
+          "title": "opens side panel synchronously before the first awaited binding operation",
+          "duration": 2.306166999999988,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge rejects encoded action paths and malformed path escapes before any resource fetch",
+          "status": "passed",
+          "title": "rejects encoded action paths and malformed path escapes before any resource fetch",
+          "duration": 2.22199999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge rejects earlier preview IDs after another action binds a different source tab",
+          "status": "passed",
+          "title": "rejects earlier preview IDs after another action binds a different source tab",
+          "duration": 0.7632909999999811,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge counts identical source hashes once and resets a new section capture",
+          "status": "passed",
+          "title": "counts identical source hashes once and resets a new section capture",
+          "duration": 1.5043339999999716,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "trusted extension capture bridge"
+          ],
+          "fullName": "trusted extension capture bridge revokes a binding when the original tab navigates",
+          "status": "passed",
+          "title": "revokes a binding when the original tab navigates",
+          "duration": 2.763500000000022,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062106715,
+      "endTime": 1794062106812.7634,
+      "status": "passed",
+      "message": "",
+      "name": "tests/unit/browser-bridge.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs parses exact cue text, supported markup and positioning without treating harmless deixis as failure",
+          "status": "passed",
+          "title": "parses exact cue text, supported markup and positioning without treating harmless deixis as failure",
+          "duration": 2.0091659999999933,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (0)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (0)",
+          "duration": 0.4384170000000154,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (1)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (1)",
+          "duration": 0.09958299999999554,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (2)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (2)",
+          "duration": 0.12495899999998983,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (3)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (3)",
+          "duration": 0.1550420000000372,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (4)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (4)",
+          "duration": 0.12420900000000756,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (5)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (5)",
+          "duration": 0.13612499999999272,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (6)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (6)",
+          "duration": 0.12954199999995808,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (7)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (7)",
+          "duration": 0.3875419999999963,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (8)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (8)",
+          "duration": 0.17662500000000136,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects malformed, overlapping, empty, executable or out-of-range VTT (9)",
+          "status": "passed",
+          "title": "rejects malformed, overlapping, empty, executable or out-of-range VTT (9)",
+          "duration": 0.118583000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs rejects excess cues rather than silently truncating",
+          "status": "passed",
+          "title": "rejects excess cues rather than silently truncating",
+          "duration": 0.2758330000000342,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs distinguishes a captionless draft from compilation readiness, without fake cues",
+          "status": "passed",
+          "title": "distinguishes a captionless draft from compilation readiness, without fake cues",
+          "duration": 8.643417,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs uses half-open state occurrences, including returns to the same original asset and the final endpoint",
+          "status": "passed",
+          "title": "uses half-open state occurrences, including returns to the same original asset and the final endpoint",
+          "duration": 0.48254200000002356,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "bounded transcript and temporal inputs"
+          ],
+          "fullName": "bounded transcript and temporal inputs loads preserved independent fixture inputs and exposes the deliberate missing-alignment mutation",
+          "status": "passed",
+          "title": "loads preserved independent fixture inputs and exposes the deliberate missing-alignment mutation",
+          "duration": 927.349375,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual media bytes, not metadata claims"
+          ],
+          "fullName": "actual media bytes, not metadata claims recomputes immutable hashes, dimensions, and actual audio sample duration",
+          "status": "passed",
+          "title": "recomputes immutable hashes, dimensions, and actual audio sample duration",
+          "duration": 99.54399999999987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual media bytes, not metadata claims"
+          ],
+          "fullName": "actual media bytes, not metadata claims rejects canonical base64 violations and per-file byte caps before decoding",
+          "status": "passed",
+          "title": "rejects canonical base64 violations and per-file byte caps before decoding",
+          "duration": 5.727957999999944,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual media bytes, not metadata claims"
+          ],
+          "fullName": "actual media bytes, not metadata claims rejects corrupt compressed pixels, signature mismatches and truncated audio data",
+          "status": "passed",
+          "title": "rejects corrupt compressed pixels, signature mismatches and truncated audio data",
+          "duration": 233.7835,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual media bytes, not metadata claims"
+          ],
+          "fullName": "actual media bytes, not metadata claims rejects excessive decoded dimensions before allocating image pixels",
+          "status": "passed",
+          "title": "rejects excessive decoded dimensions before allocating image pixels",
+          "duration": 0.9071249999999509,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms accepts equivalent supported wording: The rate is five units.",
+          "status": "passed",
+          "title": "accepts equivalent supported wording: The rate is five units.",
+          "duration": 1.4801250000000437,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms accepts equivalent supported wording: The price is seven pounds.",
+          "status": "passed",
+          "title": "accepts equivalent supported wording: The price is seven pounds.",
+          "duration": 0.09687499999995453,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms accepts equivalent supported wording: The temperature is negative three Celsius.",
+          "status": "passed",
+          "title": "accepts equivalent supported wording: The temperature is negative three Celsius.",
+          "duration": 0.14362499999992906,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms accepts equivalent supported wording: The length is twenty-one millimetres.",
+          "status": "passed",
+          "title": "accepts equivalent supported wording: The length is twenty-one millimetres.",
+          "duration": 0.07024999999998727,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms accepts equivalent supported wording: The fraction is the sum of a and b divided by the difference of c and d. Assume c not equal to d.",
+          "status": "passed",
+          "title": "accepts equivalent supported wording: The fraction is the sum of a and b divided by the difference of c and d. Assume c not equal to d.",
+          "duration": 1.609083999999939,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms accepts equivalent supported wording: D zero shifts to D one.",
+          "status": "passed",
+          "title": "accepts equivalent supported wording: D zero shifts to D one.",
+          "duration": 0.11154099999998834,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: The price is eight pounds.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: The price is eight pounds.",
+          "duration": 0.09950000000003456,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: The value is three.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: The value is three.",
+          "duration": 0.06237500000020191,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: The value is negative three.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: The value is negative three.",
+          "duration": 0.04883400000016991,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: The price is five dollars.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: The price is five dollars.",
+          "duration": 0.05099999999993088,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: The length is 5 kilograms.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: The length is 5 kilograms.",
+          "duration": 0.05108399999994617,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: The denominator is c plus d.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: The denominator is c plus d.",
+          "duration": 0.054583999999977095,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: D2 is the new demand.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: D2 is the new demand.",
+          "duration": 0.04579199999989214,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "local cited numeric, unit, label and sign forms"
+          ],
+          "fullName": "local cited numeric, unit, label and sign forms rejects a changed value, sign, unit or identity: a is greater than b.",
+          "status": "passed",
+          "title": "rejects a changed value, sign, unit or identity: a is greater than b.",
+          "duration": 0.05466699999988123,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates accepts a fully supported compilation and finds exact quote locations",
+          "status": "passed",
+          "title": "accepts a fully supported compilation and finds exact quote locations",
+          "duration": 4.527832999999873,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects quote provenance/support mutation",
+          "status": "passed",
+          "title": "rejects quote provenance/support mutation",
+          "duration": 2.209083999999848,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects cue provenance/support mutation",
+          "status": "passed",
+          "title": "rejects cue provenance/support mutation",
+          "duration": 2.1303340000001754,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects time provenance/support mutation",
+          "status": "passed",
+          "title": "rejects time provenance/support mutation",
+          "duration": 2.359457999999904,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects revision provenance/support mutation",
+          "status": "passed",
+          "title": "rejects revision provenance/support mutation",
+          "duration": 2.588958000000048,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects crop provenance/support mutation",
+          "status": "passed",
+          "title": "rejects crop provenance/support mutation",
+          "duration": 0.7549169999999776,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects claim provenance/support mutation",
+          "status": "passed",
+          "title": "rejects claim provenance/support mutation",
+          "duration": 2.1230829999999514,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects unknown-fact provenance/support mutation",
+          "status": "passed",
+          "title": "rejects unknown-fact provenance/support mutation",
+          "duration": 3.101166999999805,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates rejects number provenance/support mutation",
+          "status": "passed",
+          "title": "rejects number provenance/support mutation",
+          "duration": 2.7867080000000897,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates requires the specific essential unresolved to be spoken and never marked supported",
+          "status": "passed",
+          "title": "requires the specific essential unresolved to be spoken and never marked supported",
+          "duration": 10.45225000000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates requires the specific essential conflict to be spoken and never marked supported",
+          "status": "passed",
+          "title": "requires the specific essential conflict to be spoken and never marked supported",
+          "duration": 10.445165999999972,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates does not turn a merely valid citation into support for an invented answer",
+          "status": "passed",
+          "title": "does not turn a merely valid citation into support for an invented answer",
+          "duration": 0.6667089999998552,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates blocks an unidentified option choice and silent conflict reconciliation even with valid evidence IDs",
+          "status": "passed",
+          "title": "blocks an unidentified option choice and silent conflict reconciliation even with valid evidence IDs",
+          "duration": 0.7290000000000418,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "evidence, coverage, revision and spoken uncertainty gates"
+          ],
+          "fullName": "evidence, coverage, revision and spoken uncertainty gates keeps runtime wire schemas strict and rejects omitted critical fields",
+          "status": "passed",
+          "title": "keeps runtime wire schemas strict and rejects omitted critical fields",
+          "duration": 0.17316700000014862,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "dependency-level temporal provenance"
+          ],
+          "fullName": "dependency-level temporal provenance rejects future-state substitution even when a segment spans both states",
+          "status": "passed",
+          "title": "rejects future-state substitution even when a segment spans both states",
+          "duration": 4.924958000000061,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "asset parser buffer ownership"
+          ],
+          "fullName": "asset parser buffer ownership keeps a provider Buffer intact after transferring bytes to its parser worker",
+          "status": "passed",
+          "title": "keeps a provider Buffer intact after transferring bytes to its parser worker",
+          "duration": 381.6757080000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062106919,
+      "endTime": 1794062108635.6758,
+      "status": "passed",
+      "message": "",
+      "name": "tests/unit/core.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary lists the complete source family plus all reproducible source mutations",
+          "status": "passed",
+          "title": "lists the complete source family plus all reproducible source mutations",
+          "duration": 1.1962089999999534,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary rejects unknown/path-like fixture ID ../expected/F1",
+          "status": "passed",
+          "title": "rejects unknown/path-like fixture ID ../expected/F1",
+          "duration": 0.6738749999999527,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary rejects unknown/path-like fixture ID ../../BUILD_SPEC",
+          "status": "passed",
+          "title": "rejects unknown/path-like fixture ID ../../BUILD_SPEC",
+          "duration": 0.15341700000021774,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary rejects unknown/path-like fixture ID /tmp/F1",
+          "status": "passed",
+          "title": "rejects unknown/path-like fixture ID /tmp/F1",
+          "duration": 0.1706659999999829,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary rejects unknown/path-like fixture ID f1",
+          "status": "passed",
+          "title": "rejects unknown/path-like fixture ID f1",
+          "duration": 0.09587499999997817,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary rejects unknown/path-like fixture ID unknown",
+          "status": "passed",
+          "title": "rejects unknown/path-like fixture ID unknown",
+          "duration": 0.17975000000001273,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary F1 returns a CONTRACT Bundle with real source bytes and no answer context",
+          "status": "passed",
+          "title": "F1 returns a CONTRACT Bundle with real source bytes and no answer context",
+          "duration": 186.13637500000004,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary F2 returns a CONTRACT Bundle with real source bytes and no answer context",
+          "status": "passed",
+          "title": "F2 returns a CONTRACT Bundle with real source bytes and no answer context",
+          "duration": 172.1858749999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary F3 returns a CONTRACT Bundle with real source bytes and no answer context",
+          "status": "passed",
+          "title": "F3 returns a CONTRACT Bundle with real source bytes and no answer context",
+          "duration": 28.441375000000107,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary F4a returns a CONTRACT Bundle with real source bytes and no answer context",
+          "status": "passed",
+          "title": "F4a returns a CONTRACT Bundle with real source bytes and no answer context",
+          "duration": 181.30774999999994,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary F4b returns a CONTRACT Bundle with real source bytes and no answer context",
+          "status": "passed",
+          "title": "F4b returns a CONTRACT Bundle with real source bytes and no answer context",
+          "duration": 165.50654099999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary does not expose fixture identity as an expected semantic answer in market titles",
+          "status": "passed",
+          "title": "does not expose fixture identity as an expected semantic answer in market titles",
+          "duration": 0.11933300000009694,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "authored synthetic source bundle boundary"
+          ],
+          "fullName": "authored synthetic source bundle boundary fresh loads cannot be modified through a previous returned Bundle",
+          "status": "passed",
+          "title": "fresh loads cannot be modified through a previous returned Bundle",
+          "duration": 10.71441700000014,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F1 has exactly the specified PCM duration and audible content in every slot",
+          "status": "passed",
+          "title": "F1 has exactly the specified PCM duration and audible content in every slot",
+          "duration": 21.102292000000034,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F2 has exactly the specified PCM duration and audible content in every slot",
+          "status": "passed",
+          "title": "F2 has exactly the specified PCM duration and audible content in every slot",
+          "duration": 6.634875000000193,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F3 has exactly the specified PCM duration and audible content in every slot",
+          "status": "passed",
+          "title": "F3 has exactly the specified PCM duration and audible content in every slot",
+          "duration": 2.0611670000000686,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F4a has exactly the specified PCM duration and audible content in every slot",
+          "status": "passed",
+          "title": "F4a has exactly the specified PCM duration and audible content in every slot",
+          "duration": 6.29191700000024,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F4b has exactly the specified PCM duration and audible content in every slot",
+          "status": "passed",
+          "title": "F4b has exactly the specified PCM duration and audible content in every slot",
+          "duration": 6.544207999999799,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F1 uses the exact six supplied caption sentences, not an adapted answer script",
+          "status": "passed",
+          "title": "F1 uses the exact six supplied caption sentences, not an adapted answer script",
+          "duration": 0.11179199999969569,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F2 changes the actual speech for cues 2 and 3, preserving the other four exact slots",
+          "status": "passed",
+          "title": "F2 changes the actual speech for cues 2 and 3, preserving the other four exact slots",
+          "duration": 3.112040999999863,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual synthetic source A speech and timed captions"
+          ],
+          "fullName": "actual synthetic source A speech and timed captions F4a changes only conflicting C3 speech; F4b preserves original source audio",
+          "status": "passed",
+          "title": "F4a changes only conflicting C3 speech; F4b preserves original source audio",
+          "duration": 4338.054042,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "temporal source fidelity"
+          ],
+          "fullName": "temporal source fidelity uses unique occurrences, real within-slide changes, and reuses original V1 bytes on return",
+          "status": "passed",
+          "title": "uses unique occurrences, real within-slide changes, and reuses original V1 bytes on return",
+          "duration": 0.4842079999998532,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "temporal source fidelity"
+          ],
+          "fullName": "temporal source fidelity M-gap is genuinely missing V3 alignment and fails before compilation",
+          "status": "passed",
+          "title": "M-gap is genuinely missing V3 alignment and fails before compilation",
+          "duration": 236.96108399999957,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "temporal source fidelity"
+          ],
+          "fullName": "temporal source fidelity the edited timeline is valid, changed source data with a new visual boundary",
+          "status": "passed",
+          "title": "the edited timeline is valid, changed source data with a new visual boundary",
+          "duration": 160.2557079999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F1 PNGs decode as actual 1000x800 images, not source descriptions",
+          "status": "passed",
+          "title": "F1 PNGs decode as actual 1000x800 images, not source descriptions",
+          "duration": 75.13583400000061,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F2 PNGs decode as actual 1000x800 images, not source descriptions",
+          "status": "passed",
+          "title": "F2 PNGs decode as actual 1000x800 images, not source descriptions",
+          "duration": 71.41504199999963,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F3 PNGs decode as actual 1000x800 images, not source descriptions",
+          "status": "passed",
+          "title": "F3 PNGs decode as actual 1000x800 images, not source descriptions",
+          "duration": 17.576332999999977,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F4a PNGs decode as actual 1000x800 images, not source descriptions",
+          "status": "passed",
+          "title": "F4a PNGs decode as actual 1000x800 images, not source descriptions",
+          "duration": 69.21875,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F4b PNGs decode as actual 1000x800 images, not source descriptions",
+          "status": "passed",
+          "title": "F4b PNGs decode as actual 1000x800 images, not source descriptions",
+          "duration": 71.12408400000004,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F1 plots exact supply, initial demand and increased-demand geometry at independent sample coordinates",
+          "status": "passed",
+          "title": "F1 plots exact supply, initial demand and increased-demand geometry at independent sample coordinates",
+          "duration": 5.202374999999847,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F2 truly changes new-demand geometry to P=6-Q and E1=(3,3), not only metadata",
+          "status": "passed",
+          "title": "F2 truly changes new-demand geometry to P=6-Q and E1=(3,3), not only metadata",
+          "duration": 114.62262499999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F1 build C actually adds a ring at the new equilibrium",
+          "status": "passed",
+          "title": "F1 build C actually adds a ring at the new equilibrium",
+          "duration": 5.551083999999719,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F2 build C actually adds a ring at the new equilibrium",
+          "status": "passed",
+          "title": "F2 build C actually adds a ring at the new equilibrium",
+          "duration": 4.927291999999397,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F3 has equal-size unhighlighted point markers at both independently specified values",
+          "status": "passed",
+          "title": "F3 has equal-size unhighlighted point markers at both independently specified values",
+          "duration": 2.581416999999419,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations F4a chart remains byte-identical while F4b changes only the mathematical image to a blurred raster",
+          "status": "passed",
+          "title": "F4a chart remains byte-identical while F4b changes only the mathematical image to a blurred raster",
+          "duration": 513.2869579999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations the injection mutation changes actual slide pixels only, not application context or captions",
+          "status": "passed",
+          "title": "the injection mutation changes actual slide pixels only, not application context or captions",
+          "duration": 120.69283300000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "rendered PNG geometry and actual source mutations"
+          ],
+          "fullName": "rendered PNG geometry and actual source mutations the swapped-axes and self-contained mutations are valid real sources, not expected-answer flags",
+          "status": "passed",
+          "title": "the swapped-axes and self-contained mutations are valid real sources, not expected-answer flags",
+          "duration": 635.9630409999991,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "real downloadable PDF deck and independent expectations"
+          ],
+          "fullName": "real downloadable PDF deck and independent expectations F1 PDF parses with correct image-only pages and no hidden equation/answer text",
+          "status": "passed",
+          "title": "F1 PDF parses with correct image-only pages and no hidden equation/answer text",
+          "duration": 144.8780000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "real downloadable PDF deck and independent expectations"
+          ],
+          "fullName": "real downloadable PDF deck and independent expectations F2 PDF parses with correct image-only pages and no hidden equation/answer text",
+          "status": "passed",
+          "title": "F2 PDF parses with correct image-only pages and no hidden equation/answer text",
+          "duration": 86.65604100000019,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "real downloadable PDF deck and independent expectations"
+          ],
+          "fullName": "real downloadable PDF deck and independent expectations F3 PDF parses with correct image-only pages and no hidden equation/answer text",
+          "status": "passed",
+          "title": "F3 PDF parses with correct image-only pages and no hidden equation/answer text",
+          "duration": 21.382292000000234,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "real downloadable PDF deck and independent expectations"
+          ],
+          "fullName": "real downloadable PDF deck and independent expectations F4a PDF parses with correct image-only pages and no hidden equation/answer text",
+          "status": "passed",
+          "title": "F4a PDF parses with correct image-only pages and no hidden equation/answer text",
+          "duration": 82.31850000000122,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "real downloadable PDF deck and independent expectations"
+          ],
+          "fullName": "real downloadable PDF deck and independent expectations F4b PDF parses with correct image-only pages and no hidden equation/answer text",
+          "status": "passed",
+          "title": "F4b PDF parses with correct image-only pages and no hidden equation/answer text",
+          "duration": 80.83137499999975,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "real downloadable PDF deck and independent expectations"
+          ],
+          "fullName": "real downloadable PDF deck and independent expectations keeps separately authored critical meaning and negative assertions outside runtime bundles",
+          "status": "passed",
+          "title": "keeps separately authored critical meaning and negative assertions outside runtime bundles",
+          "duration": 50.111415999999736,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062107815,
+      "endTime": 1794062115519.1113,
+      "status": "passed",
+      "message": "",
+      "name": "tests/unit/fixtures.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy sends actual PNGs to compile and audit, but never unselected capture preview, navigation or filenames",
+          "status": "passed",
+          "title": "sends actual PNGs to compile and audit, but never unselected capture preview, navigation or filenames",
+          "duration": 40.28670900000003,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy uploads explicitly chosen context only, redacting source navigation URLs",
+          "status": "passed",
+          "title": "uploads explicitly chosen context only, redacting source navigation URLs",
+          "duration": 11.136584000000028,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy deduplicates an in-flight and successful compilation without another provider request",
+          "status": "passed",
+          "title": "deduplicates an in-flight and successful compilation without another provider request",
+          "duration": 16.095709,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy rejects unusable structured output before audit (malformed)",
+          "status": "passed",
+          "title": "rejects unusable structured output before audit (malformed)",
+          "duration": 4.59454199999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy rejects unusable structured output before audit (quote)",
+          "status": "passed",
+          "title": "rejects unusable structured output before audit (quote)",
+          "duration": 6.921333000000004,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy rejects unusable structured output before audit (id)",
+          "status": "passed",
+          "title": "rejects unusable structured output before audit (id)",
+          "duration": 6.475500000000011,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy rejects unusable structured output before audit (missing)",
+          "status": "passed",
+          "title": "rejects unusable structured output before audit (missing)",
+          "duration": 4.223125000000039,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy rejects unusable structured output before audit (revision)",
+          "status": "passed",
+          "title": "rejects unusable structured output before audit (revision)",
+          "duration": 6.857082999999989,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy rejects a semantic audit that omits a supplied image or reports an essential defect",
+          "status": "passed",
+          "title": "rejects a semantic audit that omits a supplied image or reports an essential defect",
+          "duration": 13.14549999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "actual-image compilation and selected-context privacy"
+          ],
+          "fullName": "actual-image compilation and selected-context privacy never uses inherited legacy OpenAI keys or silently substitutes a mock",
+          "status": "passed",
+          "title": "never uses inherited legacy OpenAI keys or silently substitutes a mock",
+          "duration": 7.427374999999984,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics classifies 401 as { error: { code: 'invalid_api_key', message: 'SECRET-RAW-BODY' } } with at most the permitted attempts",
+          "status": "passed",
+          "title": "classifies 401 as { error: { code: 'invalid_api_key', message: 'SECRET-RAW-BODY' } } with at most the permitted attempts",
+          "duration": 0.571166000000062,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics classifies 402 as { detail: { status: 'quota_exceeded' } } with at most the permitted attempts",
+          "status": "passed",
+          "title": "classifies 402 as { detail: { status: 'quota_exceeded' } } with at most the permitted attempts",
+          "duration": 0.20520799999997053,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics classifies 429 as { error: { code: 'insufficient_quota' } } with at most the permitted attempts",
+          "status": "passed",
+          "title": "classifies 429 as { error: { code: 'insufficient_quota' } } with at most the permitted attempts",
+          "duration": 0.136333000000036,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics classifies 429 as { error: { code: 'rate_limit_exceeded' } } with at most the permitted attempts",
+          "status": "passed",
+          "title": "classifies 429 as { error: { code: 'rate_limit_exceeded' } } with at most the permitted attempts",
+          "duration": 0.21462500000006912,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics classifies 503 as { error: { type: 'server_error' } } with at most the permitted attempts",
+          "status": "passed",
+          "title": "classifies 503 as { error: { type: 'server_error' } } with at most the permitted attempts",
+          "duration": 0.18708400000002712,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics classifies 502 as { error: { message: 'gateway did not establish rejection' } } with at most the permitted attempts",
+          "status": "passed",
+          "title": "classifies 502 as { error: { message: 'gateway did not establish rejection' } } with at most the permitted attempts",
+          "duration": 0.11104199999999764,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics classifies 504 as { error: { type: 'server_error' } } with at most the permitted attempts",
+          "status": "passed",
+          "title": "classifies 504 as { error: { type: 'server_error' } } with at most the permitted attempts",
+          "duration": 0.23699999999996635,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics makes one retry after an explicit rate-limit rejection and stores one successful result",
+          "status": "passed",
+          "title": "makes one retry after an explicit rate-limit rejection and stores one successful result",
+          "duration": 0.21199999999998909,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics never retries dropped submission responses, malformed successful output, redirects or timeout",
+          "status": "passed",
+          "title": "never retries dropped submission responses, malformed successful output, redirects or timeout",
+          "duration": 6.286083000000076,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics reserves the budget before submission and never sends after cancellation during the durable hook",
+          "status": "passed",
+          "title": "reserves the budget before submission and never sends after cancellation during the durable hook",
+          "duration": 0.26016600000002654,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "typed rejection, bounded retry and unknown-submission semantics"
+          ],
+          "fullName": "typed rejection, bounded retry and unknown-submission semantics bounds streamed response bytes and refuses credential-bearing off-host destinations",
+          "status": "passed",
+          "title": "bounds streamed response bytes and refuses credential-bearing off-host destinations",
+          "duration": 0.3156249999999545,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "ElevenLabs actual wire endpoints and playable timing"
+          ],
+          "fullName": "ElevenLabs actual wire endpoints and playable timing requests PCM timestamped speech and wraps returned samples as a valid WAV with actual duration",
+          "status": "passed",
+          "title": "requests PCM timestamped speech and wraps returned samples as a valid WAV with actual duration",
+          "duration": 1.119291999999973,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "ElevenLabs actual wire endpoints and playable timing"
+          ],
+          "fullName": "ElevenLabs actual wire endpoints and playable timing rejects invalid character timing and missing voice, without fake success",
+          "status": "passed",
+          "title": "rejects invalid character timing and missing voice, without fake success",
+          "duration": 0.5107920000000377,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "ElevenLabs actual wire endpoints and playable timing"
+          ],
+          "fullName": "ElevenLabs actual wire endpoints and playable timing uploads file bytes for separately consented STT, derives word-timed VTT and never submits a private URL",
+          "status": "passed",
+          "title": "uploads file bytes for separately consented STT, derives word-timed VTT and never submits a private URL",
+          "duration": 8.908167000000049,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "ElevenLabs actual wire endpoints and playable timing"
+          ],
+          "fullName": "ElevenLabs actual wire endpoints and playable timing redacts reports recursively, including exact keys and private navigation URLs",
+          "status": "passed",
+          "title": "redacts reports recursively, including exact keys and private navigation URLs",
+          "duration": 0.21937500000001364,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062106980,
+      "endTime": 1794062107117.2195,
+      "status": "passed",
+      "message": "",
+      "name": "tests/unit/providers.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "durable immutable lecture storage"
+          ],
+          "fullName": "durable immutable lecture storage retains queue order, compact hash references, hydration and playback across restart",
+          "status": "passed",
+          "title": "retains queue order, compact hash references, hydration and playback across restart",
+          "duration": 131.84029199999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "durable immutable lecture storage"
+          ],
+          "fullName": "durable immutable lecture storage preserves a shared blob until the last referencing lecture is deleted",
+          "status": "passed",
+          "title": "preserves a shared blob until the last referencing lecture is deleted",
+          "duration": 122.79804200000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "durable immutable lecture storage"
+          ],
+          "fullName": "durable immutable lecture storage archives old outputs and Q&A, clears current playback and invalidates running jobs on an input edit",
+          "status": "passed",
+          "title": "archives old outputs and Q&A, clears current playback and invalidates running jobs on an input edit",
+          "duration": 118.40749999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "durable immutable lecture storage"
+          ],
+          "fullName": "durable immutable lecture storage does not publish a failed atomic write or break a subsequent retry",
+          "status": "passed",
+          "title": "does not publish a failed atomic write or break a subsequent retry",
+          "duration": 87.27837499999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "durable immutable lecture storage"
+          ],
+          "fullName": "durable immutable lecture storage recovers pending jobs but never automatically retries a submitted unknown-outcome request",
+          "status": "passed",
+          "title": "recovers pending jobs but never automatically retries a submitted unknown-outcome request",
+          "duration": 185.21687499999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "durable immutable lecture storage"
+          ],
+          "fullName": "durable immutable lecture storage deduplicates successful request keys and rejects a key reused for another revision or action",
+          "status": "passed",
+          "title": "deduplicates successful request keys and rejects a key reused for another revision or action",
+          "duration": 166.180208,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "durable immutable lecture storage"
+          ],
+          "fullName": "durable immutable lecture storage rejects path-shaped IDs and refuses late completion after a durable deletion tombstone",
+          "status": "passed",
+          "title": "rejects path-shaped IDs and refuses late completion after a durable deletion tombstone",
+          "duration": 145.62379199999987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "derived audio reachability"
+          ],
+          "fullName": "derived audio reachability reclaims displaced narration and trimmed answers only after a successful commit",
+          "status": "passed",
+          "title": "reclaims displaced narration and trimmed answers only after a successful commit",
+          "duration": 129.2216249999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "derived audio reachability"
+          ],
+          "fullName": "derived audio reachability keeps a displaced blob while another lecture still references it",
+          "status": "passed",
+          "title": "keeps a displaced blob while another lecture still references it",
+          "duration": 110.77983300000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        },
+        {
+          "ancestorTitles": [
+            "derived audio reachability"
+          ],
+          "fullName": "derived audio reachability reclaims orphaned blobs left before a manifest commit when reopening",
+          "status": "passed",
+          "title": "reclaims orphaned blobs left before a manifest commit when reopening",
+          "duration": 75.50895800000012,
+          "failureMessages": [],
+          "meta": {},
+          "tags": []
+        }
+      ],
+      "startTime": 1794062106740,
+      "endTime": 1794062108013.509,
+      "status": "passed",
+      "message": "",
+      "name": "tests/unit/store.test.ts"
+    }
+  ]
+}

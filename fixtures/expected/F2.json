@@ -1,0 +1,17 @@
+{
+  "fixtureId": "F2",
+  "purpose": "Independent tests/reviewer-only expectations; never production input.",
+  "sourceDurationMs": 60000,
+  "criticalMeanings": [
+    {"id":"F2-K1","meaning":"Horizontal axis quantity in units; vertical price in pounds per unit, established before equilibrium values."},
+    {"id":"F2-K2","meaning":"Initial E0: quantity 5 and price £5; rising supply and falling initial demand D0."},
+    {"id":"F2-K3","meaning":"Demand decreases from D0 to D1; new demand lies left/below the original, not right/above."},
+    {"id":"F2-K4","meaning":"Fewer buyers, with other demand determinants unchanged, is the stated source context."},
+    {"id":"F2-K5","meaning":"Supply is unchanged; E1 is quantity 3 and price £3. Both values fall relative to E0."},
+    {"id":"F2-K6","meaning":"This is a shift of demand, not movement along the original demand curve."},
+    {"id":"F2-K7","meaning":"Preserve grouped equation: sum a plus b divided by whole c minus d, with c not equal to d; no numerical r."},
+    {"id":"F2-K8","meaning":"Reopening the original diagram is a reference, not an actual market reversal."}
+  ],
+  "prohibitedAssertions": ["New equilibrium 7 or £7", "Demand increases", "More buyers caused the change", "Supply changes", "A numerical r", "F1's audio or cached script is reused as if F2 were unchanged"],
+  "mutationRequirements": ["C2 and C3 actual WAV speech differs from F1", "V2/V3 actual PNG geometry and printed labels differ", "V1/V4 remain unchanged source assets", "Any generated B must reflect the changed source rather than only fixture ID"]
+}

@@ -1,0 +1,1 @@
+This one is the option I want you to use. Read off its two values. Limitation: The visual meaning for this passage cannot be determined because the image was not analysed in offline mock mode; any visually dependent detail remains unverified.

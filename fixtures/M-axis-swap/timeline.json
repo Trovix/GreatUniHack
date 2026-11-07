@@ -1,0 +1,11 @@
+[
+  {
+    "id": "O1",
+    "stateId": "V1",
+    "assetId": "IMG_V1",
+    "startMs": 0,
+    "endMs": 60000,
+    "alignment": "provided_fixture",
+    "build": "slide 1 build A"
+  }
+]

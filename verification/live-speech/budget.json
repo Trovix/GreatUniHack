@@ -1,0 +1,46 @@
+{
+  "maximumEstimatedTtsSeconds": 240,
+  "maximumSttFiles": 1,
+  "entries": [
+    {
+      "caseId": "F1-reference",
+      "operation": "tts",
+      "attempt": 1,
+      "estimatedSeconds": 147,
+      "state": "success",
+      "at": "2026-11-07T14:26:16.203Z",
+      "status": 200,
+      "durationMs": 5991
+    },
+    {
+      "caseId": "F2-change-reference",
+      "operation": "tts",
+      "attempt": 1,
+      "estimatedSeconds": 31,
+      "state": "success",
+      "at": "2026-11-07T14:26:22.285Z",
+      "status": 200,
+      "durationMs": 1331
+    },
+    {
+      "caseId": "QA-reference",
+      "operation": "tts",
+      "attempt": 1,
+      "estimatedSeconds": 23,
+      "state": "success",
+      "at": "2026-11-07T14:26:23.671Z",
+      "status": 200,
+      "durationMs": 1304
+    },
+    {
+      "caseId": "source-F1-stt",
+      "operation": "stt",
+      "attempt": 1,
+      "estimatedSeconds": 60,
+      "state": "success",
+      "at": "2026-11-07T14:26:25.070Z",
+      "status": 200,
+      "durationMs": 1768
+    }
+  ]
+}
